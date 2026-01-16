@@ -180,21 +180,56 @@ footer{
     margin:0;
   }
 }
+
+  <script>
+const menu = document.getElementById("nav-menu");
+const overlay = document.getElementById("menu-overlay");
+
+function toggleMenu(){
+  menu.classList.toggle("show");
+  overlay.classList.toggle("active");
+}
+
+/* cerrar tocando fuera */
+overlay.addEventListener("click", () => {
+  menu.classList.remove("show");
+  overlay.classList.remove("active");
+});
+
+/* cerrar al tocar un link */
+document.querySelectorAll("#nav-menu a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    menu.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+});
+</script>
 </style>
 </head>
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-<nav id="nav-menu">
-  <a href="index.html" class="nav-btn">INICIO</a>
-  <a href="quienes-somos.html" class="nav-btn">¿QUIÉNES SOMOS?</a>
-  <a href="menu.html" class="nav-btn active">MENÚ</a>
-  <a href="eventos.html" class="nav-btn">EVENTOS</a>
-  <a href="contacto.html" class="nav-btn">CONTACTOS</a>
-  <a href="ubicacion.html" class="nav-btn">UBICACIÓN</a>
-</nav>
+
+  <!-- BOTÓN HAMBURGUESA -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="index.html" class="nav-btn">INICIO</a>
+    <a href="quienes-somos.html" class="nav-btn active">¿QUIÉNES SOMOS?</a>
+    <a href="menu.html" class="nav-btn">MENÚ</a>
+    <a href="eventos.html" class="nav-btn">EVENTOS</a>
+    <a href="contacto.html" class="nav-btn">CONTACTOS</a>
+    <a href="ubicacion.html" class="nav-btn">UBICACIÓN</a>
+  </nav>
 </header>
+
+<!-- OVERLAY MENU -->
+<div id="menu-overlay"></div>
 
 <section class="hero">
   <div class="hero-content">
@@ -223,11 +258,30 @@ footer{
 
 <a class="whatsapp" href="https://wa.me/5037629-0176" target="_blank">WhatsApp</a>
 <script>
+const menu = document.getElementById("nav-menu");
+const overlay = document.getElementById("menu-overlay");
+
 function toggleMenu(){
-  document.getElementById("nav-menu").classList.toggle("show");
+  menu.classList.toggle("show");
+  overlay.classList.toggle("active");
 }
+
+/* cerrar tocando fuera */
+overlay.addEventListener("click", () => {
+  menu.classList.remove("show");
+  overlay.classList.remove("active");
+});
+
+/* cerrar al tocar un link */
+document.querySelectorAll("#nav-menu a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    menu.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+});
 </script>
 </body>
 </html>
+
 
 
