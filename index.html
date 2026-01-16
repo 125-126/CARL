@@ -654,7 +654,35 @@ html, body {
     height: 140px;
   }
 }
-  
+ /* ===== FIX DEFINITIVO MENU HAMBURGUESA ===== */
+@media (max-width:768px){
+
+  header{
+    position: relative;
+  }
+
+  nav#nav-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg,var(--vino),var(--madera));
+    display: none;
+    flex-direction: column;
+    padding: 15px;
+    z-index: 9999;
+  }
+
+  nav#nav-menu.show{
+    display: flex;
+  }
+
+  nav#nav-menu a{
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+  }
+} 
   
 </style>
 </head>
@@ -852,6 +880,7 @@ function closeInfo(){
 
 </body>
 </html>
+
 
 
 
