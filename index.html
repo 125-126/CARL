@@ -480,11 +480,79 @@ nav a.nav-btn.active{
 
   /* ===== HEADER MOBILE DEFINITIVO ===== */
 
+/* ===== MENU HAMBURGUESA ===== */
 .menu-toggle{
   display:none;
   flex-direction:column;
   gap:6px;
   cursor:pointer;
+}
+
+..menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ===== OVERLAY MENU ===== */
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  z-index:9998;
+}
+
+#menu-overlay.active{
+  display:block;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width:768px){
+
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:10000;
+    padding:14px 16px;
+  }
+
+  body{
+    padding-top:80px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
+    z-index:10001;
+  }
+
+  nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:75%;
+    height:100vh;
+    background:#020617;
+    display:flex;
+    flex-direction:column;
+    padding:100px 20px 20px;
+    gap:14px;
+    transition:right 0.3s ease;
+    z-index:9999;
+  }
+
+  nav.show{
+    right:0;
+  }
+
+  nav a.nav-btn{
+    width:100%;
+    text-align:center;
+  }
 }
 
 .menu-toggle span{
@@ -719,6 +787,8 @@ html, body {
     <a href="ubicacion.html" class="nav-btn">UBICACION</a>
   </nav>
 </header>
+
+  <div id="menu-overlay"></div>
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content"></div>
@@ -843,7 +913,6 @@ html, body {
 
 <a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
 <script>
-/* ===== MENU HAMBURGUESA FUNCIONAL ===== */
 const menu = document.getElementById("nav-menu");
 const overlay = document.getElementById("menu-overlay");
 
@@ -876,6 +945,7 @@ document.querySelectorAll("#nav-menu a").forEach(link=>{
 </div>
 </body>
 </html>
+
 
 
 
