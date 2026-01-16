@@ -134,20 +134,66 @@ footer{
   border-radius:999px;
   text-decoration:none;
 }
+  /* ===== MENU HAMBURGUESA ===== */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  header{
+    flex-direction:row;
+    padding:14px 16px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
+  }
+
+  nav{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    margin-top:16px;
+    gap:10px;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a.nav-btn{
+    width:100%;
+    text-align:center;
+    margin:0;
+  }
+}
 </style>
 </head>
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-  <nav>
-    <a href="index.html" class="nav-btn">INICIO</a>
-    <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
-    <a href="menu.html" class="nav-btn">MENU</a>
-    <a href="eventos.html" class="nav-btn">EVENTOS</a>
-    <a href="contacto.html" class="nav-btn">CONTACTOS</a>
-    <a href="ubicacion.html" class="nav-btn">UBICACION</a>
-  </nav>
+<nav id="nav-menu">
+  <a href="index.html" class="nav-btn">INICIO</a>
+  <a href="quienes-somos.html" class="nav-btn">¿QUIÉNES SOMOS?</a>
+  <a href="menu.html" class="nav-btn active">MENÚ</a>
+  <a href="eventos.html" class="nav-btn">EVENTOS</a>
+  <a href="contacto.html" class="nav-btn">CONTACTOS</a>
+  <a href="ubicacion.html" class="nav-btn">UBICACIÓN</a>
+</nav>
 </header>
 
 <section class="hero">
@@ -176,7 +222,12 @@ footer{
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5037629-0176" target="_blank">WhatsApp</a>
-
+<script>
+function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("show");
+}
+</script>
 </body>
 </html>
+
 
