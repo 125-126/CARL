@@ -64,6 +64,7 @@ header h1{
   letter-spacing:2px;
 }
 
+  
 nav a{
   margin-left:0;
   font-weight:400;
@@ -281,13 +282,34 @@ section{
   animation:galleryScroll 40s linear infinite reverse;
 }
 
-.gallery-track img{
-  width:760px;
-  height:350px;
-  object-fit:cover;
-  border-radius:16px;
-  box-shadow:0 12px 35px rgba(0,0,0,0.18);
-  transition: transform 0.3s ease;
+@media (max-width:768px){
+nav{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:linear-gradient(90deg,var(--vino),var(--madera));
+  padding:16px 18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  z-index:999;
+}
+  .gallery-track img{
+    width:240px;
+    height:160px;
+  }
+
+  .menu-gallery-track img{
+    width:220px;
+    height:220px;
+  }
+
+  .menu-card{
+    width:240px;
+  }
+}
+.menu-slider,
+.gallery-slider{
+  overflow:hidden;
+  width:100%;
 }
 
 .gallery-track img:hover{
@@ -433,14 +455,6 @@ nav a.nav-btn.active{
   }
 }
 
-@media(max-width:768px){
-  header{flex-direction:column; gap:15px;}
-  .hero{height:45vh; min-height:360px;}
-  section{padding:70px 30px;}
-  .info-section{flex-direction:column;}
-  .menu-card{min-width:220px;}
-  .gallery-track img{width:220px; height:160px;}
-}
 
 /* ===== ANIMACIONES ===== */
 @keyframes menuScroll{
@@ -560,76 +574,48 @@ nav a.nav-btn.active{
   border: 0;
   border-radius: 12px;
 }
-/* BOTÓN HAMBURGUESA */
+
+  /* ===== HEADER MOBILE DEFINITIVO ===== */
+
 .menu-toggle{
   display:none;
   flex-direction:column;
+  gap:6px;
   cursor:pointer;
 }
 
 .menu-toggle span{
-  width:28px;
+  width:26px;
   height:3px;
   background:#fff;
-  margin:5px 0;
   border-radius:2px;
 }
 
-/* MOBILE */
-@media (max-width: 768px){
-
-  header{
-    flex-wrap:wrap;
-  }
-
-  nav{
-    width:100%;
-    display:none;
-    flex-direction:column;
-    margin-top:20px;
-  }
-
-  nav a.nav-btn{
-    margin:10px 0;
-    width:100%;
-  }
-
-  nav.show{
-    display:flex;
-  }
-
-  .menu-toggle{
-    display:flex;
-  }
-}
-/* HEADER MOBILE FIX */
-@media (max-width: 768px){
+@media (max-width:768px){
 
   header{
     display:flex;
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
-    padding:18px 20px;
+    padding:14px 18px;
   }
 
   header h1{
-    font-size:22px;
+    font-size:20px;
+    white-space:nowrap;
   }
 
-  /* BOTÓN HAMBURGUESA A LA DERECHA */
   .menu-toggle{
     display:flex;
-    flex-direction:column;
-    gap:6px;
-    margin-left:auto;
+    margin-left:auto; /* 🔴 AQUÍ QUEDA A LA DERECHA */
   }
 
   nav{
     width:100%;
     display:none;
     flex-direction:column;
-    margin-top:20px;
+    margin-top:16px;
   }
 
   nav.show{
@@ -642,14 +628,6 @@ nav a.nav-btn.active{
     text-align:center;
   }
 }
-
-  .menu-toggle span{
-  width:26px;
-  height:3px;
-  background:#fff;
-  border-radius:2px;
-}
-  
 </style>
 </head>
 <body>
@@ -780,7 +758,7 @@ nav a.nav-btn.active{
       <img src="instalacion12.jpg" alt="Instalación 12">
     </div>
   </div>
-
+</section>
 
 
 <section id="contacto" class="contact bg-crema">
@@ -817,7 +795,7 @@ nav a.nav-btn.active{
   <p>© 2026 The Alazan Griller. Todos los derechos reservados.</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/5037629-0176, 6957-8713" target="_blank">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
 <script>
 const infoData = {
   inicio:{
@@ -870,6 +848,7 @@ function closeInfo(){
 
 </body>
 </html>
+
 
 
 
