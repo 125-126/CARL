@@ -80,16 +80,15 @@ nav a{
   justify-content:center;
   text-align:center;
   background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-            url("foto1.jpeg") center/contain no-repeat fixed;
+            url("foto1.jpeg") center/cover no-repeat;
 }
-
 @media (max-width:768px){
   .hero{
-    background-size: contain;
-    background-position: center center;
+    min-height:55vh;
+    background-size: cover;
+    background-position: center;
   }
 }
-
 .hero h2{font-size:42px}
 .hero p{font-size:18px}
 
@@ -395,6 +394,7 @@ function closeMenu(){
 </script>
 </body>
 </html>
+
 
 
 
