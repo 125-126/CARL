@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiénes Somos | The Alazan Griller</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --vino: #0ea5a4;
+  --madera: #0284c7;
+  --dorado: #facc15;
+  --oscuro: #ffffff;
+  --gris: #cbd5e1;
+  --crema: rgba(255,255,255,0.06);
+  --beige: rgba(255,255,255,0.04);
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;line-height:1.6;color:var(--oscuro);background:#1c1c1c;}
+h1,h2,h3{font-family:'Playfair Display',serif;}
+a{text-decoration:none;color:inherit;}
+
+/* HEADER */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 7%;
+  background:linear-gradient(90deg,var(--vino),var(--madera));
+  box-shadow:0 10px 35px rgba(0,0,0,0.45);
+}
+header h1{font-size:28px;color:#fff;letter-spacing:2px;}
+nav a.nav-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:6px 14px;font-size:13px;font-weight:600;border-radius:6px;
+  background:linear-gradient(180deg,#ffffff,#f1e6dc);
+  color:var(--madera);
+  border:1px solid #d2c2b2;
+  box-shadow:0 2px 0 #c7b3a1,0 6px 14px rgba(0,0,0,0.18);
+  transition:all 0.2s ease;
+  margin-left:6px;
+}
+nav a.nav-btn:hover{
+  background:linear-gradient(180deg,var(--vino),#8b342c);
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 3px 0 #5e211b,0 10px 22px rgba(0,0,0,.35);
+}
+nav a.nav-btn:active{transform:translateY(2px);box-shadow:0 1px 0 #5e211b,0 4px 10px rgba(0,0,0,.25);}
+nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);color:#3a2a10;border-color:#b9972e;box-shadow:0 2px 0 #b9972e,0 6px 14px rgba(0,0,0,.25);}
+
+/* HERO FULL SCREEN CON FOTO DE MARCA DE AGUA */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:0 6%;
+  background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("img/foto1.JPEG") center/cover no-repeat fixed;
+}
+.hero-content{
+  max-width:900px;
+}
+.hero h2{
+  font-size:48px;
+  margin-bottom:20px;
+}
+.hero p{
+  font-size:20px;
+  line-height:1.6;
+}
+
+/* INFO WRAPPER */
+.info-wrapper{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:35px;
+  max-width:1200px;
+  margin:70px auto;
+  padding:0 24px;
+}
+.info-section{
+  background:rgba(0,0,0,0.65);
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.5);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.info-section h2{
+  font-size:24px;
+  color:var(--dorado);
+  margin-bottom:12px;
+}
+.info-section p{
+  font-size:16px;
+  line-height:1.6;
+  color:#eee;
+}
+.info-section:hover{
+  transform:translateY(-6px);
+  box-shadow:0 28px 55px rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .info-wrapper{grid-template-columns:1fr; gap:50px;}
+}
+@media(max-width:768px){
+  header{flex-direction:column; gap:15px;}
+  section{padding:50px 20px;}
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:var(--gris);
+  text-align:center;
+  padding:50px;
+  font-size:14px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>THE ALAZAN GRILLER</h1>
+  <nav>
+    <a href="index.html" class="nav-btn">INICIO</a>
+    <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
+    <a href="menu.html" class="nav-btn">MENU</a>
+    <a href="eventos.html" class="nav-btn">EVENTOS</a>
+    <a href="contacto.html" class="nav-btn">CONTACTOS</a>
+    <a href="ubicacion.html" class="nav-btn">UBICACION</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Quiénes Somos</h2>
+    <p>The Alazan Griller fue creado para el sano esparcimiento de personas de buen gusto que desean compartir momentos de confort, disfrutando de una experiencia gastronómica única. Ofrecemos alimentos cuidadosamente preparados que deleitan el paladar con el auténtico sabor del grill, en un ambiente cálido y acogedor.
+</p>
+  </div>
+</section>
+
+<section class="info-wrapper">
+  <div class="info-section">
+    <h2>Misión</h2>
+    <p>Brindar a nuestros clientes una experiencia gastronómica única, ofreciendo alimentos de alta calidad, un ambiente acogedor y un servicio excepcional.</p>
+  </div>
+  <div class="info-section">
+    <h2>Visión</h2>
+    <p>Ser reconocidos como uno de los mejores restaurantes de parrilla de la zona, destacándonos por nuestro sabor, atención y compromiso con la satisfacción del cliente.</p>
+  </div>
+  <div class="info-section">
+    <h2>Valores</h2>
+    <p>Creemos en la fe como guía de nuestro servicio, en el respeto como base de nuestras relaciones y en la responsabilidad como compromiso diario. Trabajamos con honestidad, perseverancia y pasión por ofrecer la mejor experiencia en cada platillo.</p></section>
+
+<footer>
+  <p>© 2026 The Alazan Griller. Todos los derechos reservados.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5037629-0176" target="_blank">WhatsApp</a>
+
+</body>
+</html>

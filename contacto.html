@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | The Alazan Griller</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --vino: #0ea5a4;
+  --madera: #0284c7;
+  --dorado: #facc15;
+  --oscuro: #ffffff;
+  --gris: #cbd5e1;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;line-height:1.6;color:var(--oscuro);background:#1c1c1c;}
+h1,h2,h3{font-family:'Playfair Display',serif;}
+a{text-decoration:none;color:inherit;}
+
+/* HEADER */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 7%;
+  background:linear-gradient(90deg,var(--vino),var(--madera));
+  box-shadow:0 10px 35px rgba(0,0,0,0.45);
+}
+header h1{font-size:28px;color:#fff;letter-spacing:2px;}
+nav a.nav-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:6px 14px;font-size:13px;font-weight:600;border-radius:6px;
+  background:linear-gradient(180deg,#ffffff,#f1e6dc);
+  color:var(--madera);
+  border:1px solid #d2c2b2;
+  box-shadow:0 2px 0 #c7b3a1,0 6px 14px rgba(0,0,0,0.18);
+  transition:all 0.2s ease;
+  margin-left:6px;
+}
+nav a.nav-btn:hover{
+  background:linear-gradient(180deg,var(--vino),#8b342c);
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 3px 0 #5e211b,0 10px 22px rgba(0,0,0,.35);
+}
+nav a.nav-btn:active{transform:translateY(2px);box-shadow:0 1px 0 #5e211b,0 4px 10px rgba(0,0,0,.25);}
+nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);color:#3a2a10;border-color:#b9972e;box-shadow:0 2px 0 #b9972e,0 6px 14px rgba(0,0,0,.25);}
+
+/* HERO / BACKGROUND MARCA DE AGUA */
+.contact-hero{
+  position:relative;
+  min-height:50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:0 6%;
+  background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("img/foto1.JPEG") center/cover no-repeat fixed;
+}
+.contact-content{
+  max-width:900px;
+}
+.contact-content h2{
+  font-size:48px;
+  margin-bottom:20px;
+}
+.contact-content p{
+  font-size:20px;
+  line-height:1.6;
+}
+
+/* INFO DE CONTACTO */
+.contact-info{
+  max-width:700px;
+  margin:50px auto;
+  background:rgba(0,0,0,0.65);
+  padding:40px 30px;
+  border-radius:18px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.5);
+}
+.contact-info h2{
+  text-align:center;
+  font-size:36px;
+  color:var(--dorado);
+  margin-bottom:30px;
+}
+.contact-info p{
+  font-size:18px;
+  margin-bottom:12px;
+  color:#eee;
+}
+.contact-info ul{
+  list-style:none;
+  margin-bottom:20px;
+  padding-left:0;
+}
+.contact-info ul li{
+  font-size:16px;
+  color:#cbd5e1;
+  margin-bottom:6px;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:var(--gris);
+  text-align:center;
+  padding:50px;
+  font-size:14px;
+}
+
+/* BURBUJAS FLOTANTES (WhatsApp, Facebook, Instagram) */
+.social-bubble{
+  position:fixed;
+  right:20px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.1);
+  transition:all 0.3s;
+  z-index:999;
+}
+.social-bubble img{
+  width:28px;
+  height:28px;
+}
+.social-bubble:hover{
+  transform:translateY(-5px);
+  background:rgba(250,204,21,0.85);
+}
+
+/* Posiciones para que no se superpongan */
+.social-bubble.whatsapp{bottom:20px;}
+.social-bubble.facebook{bottom:90px;}
+.social-bubble.instagram{bottom:160px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>THE ALAZAN GRILLER</h1>
+  <nav>
+    <a href="index.html" class="nav-btn">INICIO</a>
+    <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
+    <a href="menu.html" class="nav-btn">MENU</a>
+    <a href="eventos.html" class="nav-btn">EVENTOS</a>
+    <a href="contacto.html" class="nav-btn active">CONTACTOS</a>
+    <a href="ubicacion.html" class="nav-btn">UBICACION</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="contact-content">
+    <h2>Contacto</h2>
+    <p>📱 Comunícate con nosotros por teléfono, correo o WhatsApp. Te atenderemos con gusto y resolveremos tus dudas.</p>
+  </div>
+</section>
+
+<!-- INFO CONTACTO -->
+<section class="contact-info">
+  <h2>Información de Contacto</h2>
+
+  <p>📞 <strong>Teléfonos:</strong></p>
+  <ul>
+    <li>7629-0176</li>
+    <li>6957-8713</li>
+  </ul>
+
+  <p>📧 <strong>Correo electrónico:</strong> contacto@thealazangriller.com</p>
+
+  <p>⏰ <strong>Horarios de Atención:</strong></p>
+  <ul>
+    <li>Lunes: 7:00 a.m – 8:00 p.m</li>
+    <li>Martes: 7:00 a.m – 8:00 p.m</li>
+    <li>Miércoles: 7:00 a.m – 8:00 p.m</li>
+    <li>Jueves: 7:00 a.m – 8:00 p.m</li>
+    <li>Viernes: 7:00 a.m – 9:00 p.m</li>
+    <li>Sábado: 7:00 a.m – 9:00 p.m</li>
+    <li>Domingo: 7:00 a.m – 9:00 p.m</li>
+  </ul>
+
+  <p>📱 También puedes contactarnos por WhatsApp haciendo clic en el botón inferior.</p>
+</section>
+
+<!-- BURBUJAS FLOTANTES -->
+<a href="https://wa.me/50376290176" target="_blank" class="social-bubble whatsapp">
+  <img src="img/whatsapp.png" alt="WhatsApp">
+</a>
+
+<a href="https://www.facebook.com/share/183KQ3bZAp/" target="_blank" class="social-bubble facebook">
+  <img src="img/facebook.png" alt="Facebook">
+</a>
+
+<a href="https://www.instagram.com/alazan_griller?igsh=MXBmMnY1ZDdreHhuNg==" target="_blank" class="social-bubble instagram">
+  <img src="img/instagram.jpg" alt="Instagram">
+</a>
+
+<footer>
+  <p>© 2026 The Alazan Griller. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
