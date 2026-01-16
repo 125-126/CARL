@@ -144,10 +144,6 @@ nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);co
   }
 }
 
-@media(max-width:768px){
-  header{flex-direction:column; gap:15px;}
-  section{padding:50px 20px;}
-}
 
 /* FOOTER */
 footer{
@@ -250,17 +246,6 @@ footer{
     letter-spacing:1px;
   }
 
-  nav{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:6px;
-  }
-
-  nav a.nav-btn{
-    font-size:11px;
-    padding:6px 10px;
-  }
 
   /* ===== HERO ===== */
   .hero{
@@ -327,20 +312,93 @@ footer{
     font-size:14px;
   }
 }
+
+  /* ===== FIX GLOBAL ===== */
+html, body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+/* ===== BOTÓN HAMBURGUESA ===== */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+
+  header{
+    padding:12px 16px;
+    flex-direction:row;
+  }
+
+  header h1{
+    font-size:20px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
+  }
+
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:linear-gradient(180deg,var(--vino),var(--madera));
+    display:none;
+    flex-direction:column;
+    padding:16px 0;
+    gap:10px;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a.nav-btn{
+    width:90%;
+    margin:0 auto;
+    justify-content:center;
+  }
+
+  /* HERO FIX */
+  .hero{
+    min-height:35vh;
+    background-attachment:scroll;
+  }
+
+  /* IMÁGENES */
+  .dish-img{
+    width:220px;
+    height:220px;
+  }
+}
 </style>
 </head>
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-  <nav>
-    <a href="index.html" class="nav-btn">INICIO</a>
-    <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
-    <a href="menu.html" class="nav-btn">MENU</a>
-    <a href="eventos.html" class="nav-btn">EVENTOS</a>
-    <a href="contacto.html" class="nav-btn">CONTACTOS</a>
-    <a href="ubicacion.html" class="nav-btn">UBICACION</a>
-  </nav>
+<nav id="nav-menu">
+  <a href="index.html" class="nav-btn">INICIO</a>
+  <a href="quienes-somos.html" class="nav-btn">¿QUIÉNES SOMOS?</a>
+  <a href="menu.html" class="nav-btn active">MENÚ</a>
+  <a href="eventos.html" class="nav-btn">EVENTOS</a>
+  <a href="contacto.html" class="nav-btn">CONTACTOS</a>
+  <a href="ubicacion.html" class="nav-btn">UBICACIÓN</a>
+</nav>
 </header>
 
 <section class="hero">
@@ -473,8 +531,13 @@ footer{
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5037629-0176" target="_blank">WhatsApp</a>
-
+<script>
+function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("show");
+}
+</script>
 </body>
 </html>
+
 
 
