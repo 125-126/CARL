@@ -683,7 +683,19 @@ html, body {
     margin: 6px 0;
   }
 } 
-  
+/* ===== OVERLAY MENU HAMBURGUESA ===== */
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:transparent;
+  display:none;
+  z-index:9998;
+}
+
+/* cuando el menú está abierto */
+#menu-overlay.active{
+  display:block;
+}  
 </style>
 </head>
 <body>
@@ -866,10 +878,28 @@ function closeInfo(){
   document.getElementById("infoModal").style.display = "none";
 }
 
-  function toggleMenu(){
-  document.getElementById("nav-menu").classList.toggle("show");
-}
 </script>
+  const menu = document.getElementById("nav-menu");
+const overlay = document.getElementById("menu-overlay");
+
+function toggleMenu(){
+  menu.classList.toggle("show");
+  overlay.classList.toggle("active");
+}
+
+/* cerrar tocando fuera */
+overlay.addEventListener("click", () => {
+  menu.classList.remove("show");
+  overlay.classList.remove("active");
+});
+
+/* cerrar al tocar un link */
+document.querySelectorAll("#nav-menu a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    menu.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+});
 <div id="infoModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeInfo()">&times;</span>
@@ -880,6 +910,7 @@ function closeInfo(){
 
 </body>
 </html>
+
 
 
 
