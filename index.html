@@ -723,7 +723,9 @@ html, body {
   <div class="hero-overlay"></div>
   <div class="hero-content"></div>
 </section>
-
+  
+<!-- OVERLAY PARA CERRAR MENÚ HAMBURGUESA -->
+<div id="menu-overlay"></div>
 <section class="info-wrapper">
 
   <div class="info-section">
@@ -841,45 +843,8 @@ html, body {
 
 <a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
 <script>
-const infoData = {
-  inicio:{
-    title:"Bienvenidos",
-    text:"The Alazan Griller es un restaurante familiar donde tradición, sabor y buen ambiente se unen."
-  },
-  menu:{
-    title:"Nuestro Menú",
-    text:"Parrilladas, cortes premium, mariscos y especialidades preparadas al momento."
-  },
-  quienes:{
-    title:"¿Quiénes Somos?",
-    text:"Somos un restaurante comprometido con la calidad, el servicio y la auténtica experiencia gastronómica."
-  },
-  eventos:{
-    title:"Eventos",
-    text:"Realizamos eventos familiares, cumpleaños y reuniones especiales con atención personalizada."
-  },
-  contacto:{
-    title:"Contacto",
-    text:"Teléfonos: 7629-0176 / 6957-8713"
-  },
-  ubicacion:{
-    title:"Ubicación",
-    text:"Hacienda Cuyagualo, Carretera a Sonsonate Km 28, Colón."
-  }
-};
-
-function openInfo(key){
-  document.getElementById("infoTitle").innerText = infoData[key].title;
-  document.getElementById("infoText").innerText = infoData[key].text;
-  document.getElementById("infoModal").style.display = "flex";
-}
-
-function closeInfo(){
-  document.getElementById("infoModal").style.display = "none";
-}
-
-</script>
-  const menu = document.getElementById("nav-menu");
+/* ===== MENU HAMBURGUESA FUNCIONAL ===== */
+const menu = document.getElementById("nav-menu");
 const overlay = document.getElementById("menu-overlay");
 
 function toggleMenu(){
@@ -900,16 +865,18 @@ document.querySelectorAll("#nav-menu a").forEach(link=>{
     overlay.classList.remove("active");
   });
 });
-<div id="infoModal" class="modal">
+</script>
+
+  <div id="infoModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeInfo()">&times;</span>
     <h2 id="infoTitle"></h2>
     <p id="infoText"></p>
   </div>
 </div>
-
 </body>
 </html>
+
 
 
 
