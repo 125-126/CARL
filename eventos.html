@@ -144,12 +144,7 @@ nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);co
   color:var(--gris);
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .gallery-track img{width:200px;height:140px;}
-  .hero h2{font-size:36px;}
-  .hero p{font-size:16px;}
-}
+
 footer{
   background:#020617;
   color:var(--gris);
@@ -184,34 +179,106 @@ footer{
   margin:5px 0;
   border-radius:2px;
 }
+html, body{
+  max-width:100%;
+  overflow-x:hidden;
+}
 
-/* MENÚ RESPONSIVE */
-@media (max-width: 768px){
+  /* ===== BOTÓN HAMBURGUESA ===== */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ===== MOBILE DEFINITIVO ===== */
+@media (max-width:768px){
 
   header{
-    flex-wrap:wrap;
+    padding:12px 16px;
+    flex-direction:row;
+  }
+
+  header h1{
+    font-size:20px;
+    letter-spacing:1px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
   }
 
   nav{
+    position:absolute;
+    top:100%;
+    left:0;
     width:100%;
+    background:linear-gradient(180deg,var(--vino),var(--madera));
     display:none;
     flex-direction:column;
-    margin-top:20px;
-  }
-
-  nav a.nav-btn{
-    margin:10px 0;
-    width:100%;
+    padding:16px 0;
+    gap:10px;
+    z-index:1000;
   }
 
   nav.show{
     display:flex;
   }
 
-  .menu-toggle{
-    display:flex;
+  nav a.nav-btn{
+    width:90%;
+    margin:0 auto;
+    justify-content:center;
+  }
+
+  /* HERO */
+  .hero{
+    min-height:35vh;
+    background-attachment:scroll;
+    padding:20px;
+  }
+
+  .hero h2{
+    font-size:28px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  /* GALERÍA */
+  .gallery-track img{
+    width:220px;
+    height:150px;
+  }
+
+  /* FORM */
+  .event-form{
+    margin:40px 14px;
+    padding:25px 18px;
+  }
+
+  footer{
+    padding:35px 20px;
+    font-size:13px;
+  }
+
+  .whatsapp{
+    bottom:15px;
+    right:15px;
+    padding:12px 16px;
   }
 }
+  
 </style>
 </head>
 <body>
@@ -219,7 +286,6 @@ footer{
 <header>
   <h1>THE ALAZAN GRILLER</h1>
 
-  <!-- BOTÓN HAMBURGUESA -->
   <div class="menu-toggle" onclick="toggleMenu()">
     <span></span>
     <span></span>
@@ -302,11 +368,16 @@ document.getElementById("reservaForm").addEventListener("submit", function(e){
   function toggleMenu(){
   document.getElementById("nav-menu").classList.toggle("show");
 }
+
+  function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("show");
+}
 </script>
 
 <a class="whatsapp" href="https://wa.me/5037629-0176" target="_blank">WhatsApp</a>
 
 </body>
 </html>
+
 
 
