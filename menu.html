@@ -180,13 +180,15 @@ footer{
   }
 
   .menu-cards{
-    grid-template-columns:1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 fotos en fila */
+    gap: 18px;
   }
+}
 
-  .dish-img{
-    width:220px;
-    height:220px;
-  }
+.dish-img{
+  width:220px;
+  height:220px;
+  border-radius:0; /* cuadrado */
 }
   /* ================= HEADER ================= */
 .main-header{
@@ -385,6 +387,7 @@ function closeMenu(){
 </script>
 </body>
 </html>
+
 
 
 
