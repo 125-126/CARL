@@ -180,30 +180,18 @@ footer{
     margin:0;
   }
 }
-
-  <script>
-const menu = document.getElementById("nav-menu");
-const overlay = document.getElementById("menu-overlay");
-
-function toggleMenu(){
-  menu.classList.toggle("show");
-  overlay.classList.toggle("active");
+/* ===== OVERLAY MENU HAMBURGUESA ===== */
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:transparent;
+  display:none;
+  z-index:9998;
 }
 
-/* cerrar tocando fuera */
-overlay.addEventListener("click", () => {
-  menu.classList.remove("show");
-  overlay.classList.remove("active");
-});
-
-/* cerrar al tocar un link */
-document.querySelectorAll("#nav-menu a").forEach(link=>{
-  link.addEventListener("click", ()=>{
-    menu.classList.remove("show");
-    overlay.classList.remove("active");
-  });
-});
-</script>
+#menu-overlay.active{
+  display:block;
+}
 </style>
 </head>
 <body>
@@ -282,6 +270,7 @@ document.querySelectorAll("#nav-menu a").forEach(link=>{
 </script>
 </body>
 </html>
+
 
 
 
