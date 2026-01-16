@@ -125,13 +125,66 @@ footer{
   border-radius:999px;
   text-decoration:none;
 }
+
+  /* BOTÓN HAMBURGUESA */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:28px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+  header{
+    flex-wrap:wrap;
+  }
+
+  nav{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    margin-top:20px;
+  }
+
+  nav a.nav-btn{
+    margin:10px 0;
+    width:100%;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+}
+
+  
 </style>
 </head>
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-  <nav>
+
+  <!-- BOTÓN HAMBURGUESA -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
     <a href="index.html" class="nav-btn">INICIO</a>
     <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
     <a href="menu.html" class="nav-btn">MENU</a>
@@ -163,7 +216,12 @@ footer{
 </footer>
 
 <a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
-
+<script>
+function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("show");
+}
+</script>
 </body>
 </html>
+
 
