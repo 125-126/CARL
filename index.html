@@ -602,7 +602,53 @@ nav a.nav-btn.active{
     display:flex;
   }
 }
+/* HEADER MOBILE FIX */
+@media (max-width: 768px){
 
+  header{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+  }
+
+  header h1{
+    font-size:22px;
+  }
+
+  /* BOTÓN HAMBURGUESA A LA DERECHA */
+  .menu-toggle{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-left:auto;
+  }
+
+  nav{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    margin-top:20px;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a.nav-btn{
+    width:100%;
+    margin:8px 0;
+    text-align:center;
+  }
+}
+
+  .menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
   
 </style>
 </head>
@@ -824,6 +870,7 @@ function closeInfo(){
 
 </body>
 </html>
+
 
 
 
