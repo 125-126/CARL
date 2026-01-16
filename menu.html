@@ -324,22 +324,22 @@ footer{
 </footer>
 
 <script>
-const menu = document.getElementById("nav-menu");
+const menu = document.getElementById("mobile-menu");
 const overlay = document.getElementById("menu-overlay");
 
 function toggleMenu(){
   menu.classList.toggle("show");
-  overlay.classList.toggle("active");
+  overlay.classList.toggle("show");
 }
 
-overlay.onclick = () => {
+function closeMenu(){
   menu.classList.remove("show");
-  overlay.classList.remove("active");
-};
+  overlay.classList.remove("show");
+}
 </script>
-
 </body>
 </html>
+
 
 
 
