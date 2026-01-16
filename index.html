@@ -218,12 +218,6 @@ section{
   margin-top:30px;
 }
 
-.gallery-track{
-  display:flex;
-  gap:18px;
-  width:max-content;
-  animation:galleryScroll 40s linear infinite reverse;
-}
 
 @media (max-width:768px){
 nav{
@@ -258,10 +252,6 @@ nav{
 
 .gallery-track img:hover{
   transform:scale(1.05);
-}
-
-.gallery-slider:hover .gallery-track{
-  animation-play-state:paused;
 }
 
 /* ===== CONTACTO ===== */
@@ -399,21 +389,11 @@ nav a.nav-btn.active{
   }
 }
 
-
-/* ===== ANIMACIONES ===== */
-
-@keyframes galleryScroll{
-  from{transform:translateX(0);}
-  to{transform:translateX(-50%);}
-}
-
 /* ===== CENTRADOS ===== */
 .center-title{
   text-align:center;
   margin-bottom:35px;
 }
-
-
 
 
 /* SLIDER MENÚ: DERECHA A IZQUIERDA */
@@ -429,12 +409,6 @@ nav a.nav-btn.active{
   gap: 20px;
   width: max-content;
   animation: menuScrollRL 40s linear infinite;
-}
-
-/* ANIMACIÓN: mover de derecha a izquierda contínuo */
-@keyframes menuScrollRL {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* 50% porque duplicaste todo el contenido */
 }
 
 .menu-slider:hover .menu-gallery-track {
@@ -587,12 +561,6 @@ nav a.nav-btn.active{
 .menu-slider{
   width:100%;
   overflow:hidden;
-}
-
-
-
-.menu-slider:hover .menu-gallery-track{
-  animation-play-state:paused;
 }
 
 .menu-gallery-track img{
@@ -856,6 +824,7 @@ function closeInfo(){
 
 </body>
 </html>
+
 
 
 
