@@ -53,15 +53,16 @@ nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);co
 /* HERO / MARCA DE AGUA */
 .location-hero{
   position:relative;
-  min-height:100vh;
+  min-height:100svh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
-  padding:0 6%;
-  background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("foto1.jpeg") center/cover no-repeat fixed;
+  padding:40px 6% 60px;
+  background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+             url("foto1.jpeg") center/cover no-repeat;
 }
 .location-hero h2{
   font-size:48px;
@@ -141,34 +142,84 @@ footer{
   border-radius:2px;
 }
 
-/* MOBILE */
-@media (max-width: 768px){
+/* ===== FIX GLOBAL ===== */
+html, body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+/* ===== MENÚ HAMBURGUESA ===== */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
 
   header{
-    flex-wrap:wrap;
+    padding:12px 16px;
+    position:relative;
+  }
+
+  header h1{
+    font-size:20px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
   }
 
   nav{
+    position:absolute;
+    top:100%;
+    left:0;
     width:100%;
+    background:linear-gradient(180deg,var(--vino),var(--madera));
     display:none;
     flex-direction:column;
-    margin-top:20px;
-  }
-
-  nav a.nav-btn{
-    margin:10px 0;
-    width:100%;
+    padding:16px 0;
+    gap:10px;
+    z-index:999;
   }
 
   nav.show{
     display:flex;
   }
 
-  .menu-toggle{
-    display:flex;
+  nav a.nav-btn{
+    width:90%;
+    margin:0 auto;
+    justify-content:center;
+  }
+
+  .location-hero h2{
+    font-size:28px;
+  }
+
+  .location-hero p{
+    font-size:15px;
+  }
+
+  .map-container iframe{
+    height:300px;
+  }
+
+  footer{
+    padding:30px 20px;
+    font-size:13px;
   }
 }
-
   
 </style>
 </head>
@@ -223,5 +274,6 @@ function toggleMenu(){
 </script>
 </body>
 </html>
+
 
 
