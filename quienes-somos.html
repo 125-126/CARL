@@ -214,6 +214,57 @@ footer{
   width:100%;
   overflow-x:hidden;
 }
+  #mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%; /* empieza oculto a la derecha */
+  width:75%;
+  max-width:360px;
+  height:100vh;
+  background:#020617;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  padding:100px 20px 20px;
+  transition:right .35s ease;
+}
+
+#mobile-menu.show{
+  right:0; /* aparece desde la derecha */
+}
+
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  z-index:9998;
+}
+
+#menu-overlay.active{
+  display:block;
+}
+
+.menu-btn{
+  width:100%;
+  max-width:280px;
+  padding:12px;
+  text-align:center;
+  border-radius:10px;
+  font-weight:700;
+  font-size:16px;
+  color:#0284c7;
+  background:linear-gradient(180deg,#ffffff,#f1e6dc);
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+
+.menu-btn.active{
+  background:linear-gradient(180deg,var(--dorado),#d4a514);
+  color:#3a2a10;
+}
 </style>
 </head>
 <body>
@@ -292,6 +343,7 @@ document.querySelectorAll("#nav-menu a").forEach(link=>{
 </script>
 </body>
 </html>
+
 
 
 
