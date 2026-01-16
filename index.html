@@ -218,32 +218,6 @@ section{
   margin-top:30px;
 }
 
-
-@media (max-width:768px){
-nav{
-  position:absolute;
-  top:100%;
-  left:0;
-  background:linear-gradient(90deg,var(--vino),var(--madera));
-  padding:16px 18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.45);
-  z-index:999;
-}
-
-  .gallery-track img{
-    width:240px;
-    height:160px;
-  }
-
-  .menu-gallery-track img{
-    width:220px;
-    height:220px;
-  }
-
-  .menu-card{
-    width:240px;
-  }
-}
 .menu-slider,
 .gallery-slider{
   overflow:hidden;
@@ -488,7 +462,7 @@ nav a.nav-btn.active{
   cursor:pointer;
 }
 
-..menu-toggle span{
+.menu-toggle span{
   width:26px;
   height:3px;
   background:#fff;
@@ -722,48 +696,8 @@ html, body {
     height: 140px;
   }
 }
- /* ===== FIX DEFINITIVO MENU HAMBURGUESA ===== */
-@media (max-width:768px){
 
-  header{
-    position: relative;
-  }
-
-  nav#nav-menu{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(90deg,var(--vino),var(--madera));
-    display: none;
-    flex-direction: column;
-    padding: 15px;
-    z-index: 9999;
-  }
-
-  nav#nav-menu.show{
-    display: flex;
-  }
-
-  nav#nav-menu a{
-    width: 100%;
-    text-align: center;
-    margin: 6px 0;
-  }
-} 
-/* ===== OVERLAY MENU HAMBURGUESA ===== */
-#menu-overlay{
-  position:fixed;
-  inset:0;
-  background:transparent;
-  display:none;
-  z-index:9998;
-}
-
-/* cuando el menú está abierto */
-#menu-overlay.active{
-  display:block;
-}  
+ 
 </style>
 </head>
 <body>
@@ -795,7 +729,7 @@ html, body {
 </section>
   
 <!-- OVERLAY PARA CERRAR MENÚ HAMBURGUESA -->
-<div id="menu-overlay"></div>
+
 <section class="info-wrapper">
 
   <div class="info-section">
@@ -945,6 +879,7 @@ document.querySelectorAll("#nav-menu a").forEach(link=>{
 </div>
 </body>
 </html>
+
 
 
 
