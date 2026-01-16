@@ -139,13 +139,120 @@ footer{
 .social-bubble.whatsapp{bottom:20px;}
 .social-bubble.facebook{bottom:90px;}
 .social-bubble.instagram{bottom:160px;}
+  /* =========================
+   MENÚ HAMBURGUESA MOBILE
+   ========================= */
+
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+
+  header{
+    padding:12px 16px;
+    flex-direction:row;
+  }
+
+  header h1{
+    font-size:20px;
+    letter-spacing:1px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
+  }
+
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:linear-gradient(180deg,var(--vino),var(--madera));
+    display:none;
+    flex-direction:column;
+    padding:16px 0;
+    gap:10px;
+    z-index:1000;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a.nav-btn{
+    width:90%;
+    margin:0 auto;
+    justify-content:center;
+  }
+
+  /* HERO */
+  .contact-hero{
+    min-height:35vh;
+    background-attachment:scroll;
+    padding:20px;
+  }
+
+  .contact-content h2{
+    font-size:28px;
+  }
+
+  .contact-content p{
+    font-size:15px;
+  }
+
+  /* INFO */
+  .contact-info{
+    margin:40px 14px;
+    padding:30px 20px;
+  }
+
+  .contact-info h2{
+    font-size:26px;
+  }
+
+  footer{
+    padding:35px 20px;
+    font-size:13px;
+  }
+
+  /* BURBUJAS */
+  .social-bubble{
+    width:46px;
+    height:46px;
+  }
+}
+html, body{
+  max-width:100%;
+  overflow-x:hidden;
+}
 </style>
 </head>
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-  <nav>
+
+  <!-- BOTÓN HAMBURGUESA -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
     <a href="index.html" class="nav-btn">INICIO</a>
     <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
     <a href="menu.html" class="nav-btn">MENU</a>
@@ -205,7 +312,12 @@ footer{
 <footer>
   <p>© 2026 The Alazan Griller. Todos los derechos reservados.</p>
 </footer>
-
+<script>
+function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("show");
+}
+</script>
 </body>
 </html>
+
 
