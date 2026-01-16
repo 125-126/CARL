@@ -560,13 +560,65 @@ nav a.nav-btn.active{
   border: 0;
   border-radius: 12px;
 }
+/* BOTÓN HAMBURGUESA */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:28px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+  header{
+    flex-wrap:wrap;
+  }
+
+  nav{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    margin-top:20px;
+  }
+
+  nav a.nav-btn{
+    margin:10px 0;
+    width:100%;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+}
+
+  
 </style>
 </head>
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-  <nav>
+
+  <!-- BOTÓN HAMBURGUESA -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
     <a href="index.html" class="nav-btn">INICIO</a>
     <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
     <a href="menu.html" class="nav-btn">MENU</a>
@@ -575,7 +627,6 @@ nav a.nav-btn.active{
     <a href="ubicacion.html" class="nav-btn">UBICACION</a>
   </nav>
 </header>
-
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content"></div>
@@ -758,6 +809,10 @@ function openInfo(key){
 function closeInfo(){
   document.getElementById("infoModal").style.display = "none";
 }
+
+  function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("show");
+}
 </script>
 <div id="infoModal" class="modal">
   <div class="modal-content">
@@ -769,6 +824,7 @@ function closeInfo(){
 
 </body>
 </html>
+
 
 
 
