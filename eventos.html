@@ -22,34 +22,99 @@ body{font-family:'Inter',sans-serif;line-height:1.6;color:var(--oscuro);backgrou
 h1,h2,h3{font-family:'Playfair Display',serif;}
 a{text-decoration:none;color:inherit;}
 
-/* HEADER */
-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 7%;
+/* ================= HEADER ================= */
+.main-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:10000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 20px;
   background:linear-gradient(90deg,var(--vino),var(--madera));
   box-shadow:0 10px 35px rgba(0,0,0,0.45);
 }
-header h1{font-size:28px;color:#fff;letter-spacing:2px;}
-nav a.nav-btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:6px 14px;font-size:13px;font-weight:600;border-radius:6px;
-  background:linear-gradient(180deg,#ffffff,#f1e6dc);
-  color:var(--madera);
-  border:1px solid #d2c2b2;
-  box-shadow:0 2px 0 #c7b3a1,0 6px 14px rgba(0,0,0,0.18);
-  transition:all 0.2s ease;
-  margin-left:6px;
-}
-nav a.nav-btn:hover{
-  background:linear-gradient(180deg,var(--vino),#8b342c);
-  color:#fff;
-  transform:translateY(-1px);
-  box-shadow:0 3px 0 #5e211b,0 10px 22px rgba(0,0,0,.35);
-}
-nav a.nav-btn:active{transform:translateY(2px);box-shadow:0 1px 0 #5e211b,0 4px 10px rgba(0,0,0,.25);}
-nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);color:#3a2a10;border-color:#b9972e;box-shadow:0 2px 0 #b9972e,0 6px 14px rgba(0,0,0,.25);}
 
-/* HERO */
+.main-header h1{
+  font-size:22px;
+  color:#fff;
+}
+
+/* ===== HAMBURGUESA ===== */
+.menu-toggle{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+  z-index:10001;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ================= OVERLAY ================= */
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  z-index:9998;
+}
+
+/* ================= MENU PANEL ================= */
+#mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%; /* empieza oculto a la derecha */
+  width:80%;
+  max-width:400px;
+  height:100vh;
+  background:#020617;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center; /* centra los botones */
+  gap:24px;
+  padding:40px 20px;
+  transition:right .35s ease;
+}
+
+#mobile-menu.show{
+  right:0; /* aparece desde la derecha */
+}
+
+#menu-overlay.show{
+  display:block;
+}
+
+/* ===== BOTONES GRANDES ===== */
+.menu-btn{
+  width:100%;
+  max-width:320px;
+  padding:18px;
+  text-align:center;
+  border-radius:12px;
+  font-weight:700;
+  font-size:18px;
+  color:#0284c7;
+  background:linear-gradient(180deg,#ffffff,#f1e6dc);
+  box-shadow:0 6px 14px rgba(0,0,0,.4);
+  transition:all 0.25s ease;
+}
+
+.menu-btn.active{
+  background:linear-gradient(180deg,var(--dorado),#d4a514);
+  color:#3a2a10;
+}
+
+/* ================= HERO ================= */
 .hero{
   position:relative;
   min-height:50vh;
@@ -144,7 +209,7 @@ nav a.nav-btn.active{background:linear-gradient(180deg,var(--dorado),#caa233);co
   color:var(--gris);
 }
 
-
+/* FOOTER */
 footer{
   background:#020617;
   color:var(--gris);
@@ -165,41 +230,7 @@ footer{
   text-decoration:none;
 }
 
-  /* BOTÓN HAMBURGUESA */
-.menu-toggle{
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-}
-
-.menu-toggle span{
-  width:28px;
-  height:3px;
-  background:#fff;
-  margin:5px 0;
-  border-radius:2px;
-}
-html, body{
-  max-width:100%;
-  overflow-x:hidden;
-}
-
-  /* ===== BOTÓN HAMBURGUESA ===== */
-.menu-toggle{
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-}
-
-.menu-toggle span{
-  width:26px;
-  height:3px;
-  background:#fff;
-  border-radius:2px;
-}
-
-/* ===== MOBILE DEFINITIVO ===== */
+/* RESPONSIVE MOBILE */
 @media (max-width:768px){
 
   header{
@@ -217,30 +248,6 @@ html, body{
     margin-left:auto;
   }
 
-  nav{
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    background:linear-gradient(180deg,var(--vino),var(--madera));
-    display:none;
-    flex-direction:column;
-    padding:16px 0;
-    gap:10px;
-    z-index:1000;
-  }
-
-  nav.show{
-    display:flex;
-  }
-
-  nav a.nav-btn{
-    width:90%;
-    margin:0 auto;
-    justify-content:center;
-  }
-
-  /* HERO */
   .hero{
     min-height:35vh;
     background-attachment:scroll;
@@ -255,13 +262,11 @@ html, body{
     font-size:15px;
   }
 
-  /* GALERÍA */
   .gallery-track img{
     width:220px;
     height:150px;
   }
 
-  /* FORM */
   .event-form{
     margin:40px 14px;
     padding:25px 18px;
@@ -278,100 +283,11 @@ html, body{
     padding:12px 16px;
   }
 }
-  /* ================= HEADER ================= */
-.main-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:10000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 20px;
-  background:linear-gradient(90deg,var(--vino),var(--madera));
-}
 
-.main-header h1{
-  font-size:22px;
-  color:#fff;
+/* DESHABILITAR SCROLL FONDO CUANDO MENÚ ABIERTO */
+body.menu-open{
+  overflow: hidden;
 }
-
-/* ===== HAMBURGUESA ===== */
-.menu-toggle{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-}
-
-.menu-toggle span{
-  width:26px;
-  height:3px;
-  background:#fff;
-  border-radius:2px;
-}
-
-/* ================= OVERLAY ================= */
-#menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  display:none;
-  z-index:9998;
-}
-
-/* ================= MENU PANEL ================= */
-#mobile-menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:80%;
-  height:100vh;
-  background:#020617;
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:16px;
-  padding:40px 20px;
-  transition:right .35s ease;
-}
-
-#mobile-menu.show{
-  right:0;
-}
-
-#menu-overlay.show{
-  display:block;
-}
-
-/* ===== BOTONES ===== */
-.menu-btn{
-  background:linear-gradient(180deg,#ffffff,#f1e6dc);
-  padding:14px;
-  text-align:center;
-  border-radius:8px;
-  font-weight:700;
-  color:#0284c7;
-  box-shadow:0 6px 14px rgba(0,0,0,.4);
-}
-
-.menu-btn.active{
-  background:linear-gradient(180deg,var(--dorado),#d4a514);
-  color:#3a2a10;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (min-width:769px){
-  .menu-toggle{
-    display:none;
-  }
-  #mobile-menu,#menu-overlay{
-    display:none !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -387,7 +303,7 @@ html, body{
 </header>
 
 <!-- MENU OVERLAY -->
-<div id="menu-overlay" onclick="closeMenu()"></div>
+<div id="menu-overlay"></div>
 
 <!-- MENU MOBILE -->
 <nav id="mobile-menu">
@@ -399,8 +315,6 @@ html, body{
   <a href="ubicacion.html" class="menu-btn">UBICACIÓN</a>
 </nav>
 
-</header>
-  
 <section class="hero">
   <div class="hero-content">
     <h2>Eventos</h2>
@@ -451,22 +365,41 @@ html, body{
 </footer>
 
 <script>
+// MENÚ FUNCIONAL
 const menu = document.getElementById("mobile-menu");
 const overlay = document.getElementById("menu-overlay");
 
 function toggleMenu(){
   menu.classList.toggle("show");
   overlay.classList.toggle("show");
+  document.body.classList.toggle("menu-open");
 }
 
 function closeMenu(){
   menu.classList.remove("show");
   overlay.classList.remove("show");
+  document.body.classList.remove("menu-open");
 }
 
-// Cerrar menú al hacer clic en un botón
+// Cerrar menú al hacer clic en cualquier botón
 document.querySelectorAll("#mobile-menu a").forEach(link=>{
   link.addEventListener("click", closeMenu);
+});
+
+// Cerrar menú al hacer clic fuera (overlay)
+overlay.addEventListener("click", closeMenu);
+
+// FORMULARIO ENVÍO WHATSAPP
+document.getElementById("reservaForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const dui = document.getElementById("dui").value;
+  const telefono = document.getElementById("telefono").value;
+  const correo = document.getElementById("correo").value;
+
+  const mensaje = `Hola, quiero reservar un evento.%0ANombre: ${nombre}%0ADUI: ${dui}%0ATeléfono: ${telefono}%0ACorreo: ${correo}`;
+  const url = `https://wa.me/5037629-0176?text=${mensaje}`;
+  window.open(url,"_blank");
 });
 </script>
 
@@ -474,7 +407,3 @@ document.querySelectorAll("#mobile-menu a").forEach(link=>{
 
 </body>
 </html>
-
-
-
-
