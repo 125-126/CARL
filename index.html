@@ -5,11 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Alazan Griller | Tradición y Buen Ambiente</title>
-<meta name="description" content="Carnes, parrilladas y comida tradicional en un ambiente familiar en Colón, El Salvador.">
+<meta name="description" content="Carnes y parrilladas en un ambiente familiar en Colón, El Salvador.">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* =====================
+   VARIABLES
+===================== */
 :root{
   --vino:#0ea5a4;
   --madera:#0284c7;
@@ -19,37 +22,60 @@
   --fondo:#020617;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
+/* =====================
+   RESET
+===================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+}
 
 body{
   font-family:'Inter',sans-serif;
   background:linear-gradient(135deg,#0b1220,#020617);
   color:var(--oscuro);
-  overflow-x:hidden;
+  line-height:1.6;
 }
 
-h1,h2,h3{font-family:'Playfair Display',serif}
-a{text-decoration:none;color:inherit}
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+}
 
-/* HEADER */
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* =====================
+   HEADER
+===================== */
 header{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   z-index:1000;
+  background:linear-gradient(90deg,var(--vino),var(--madera));
+  padding:14px 6%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:16px 6%;
-  background:linear-gradient(90deg,var(--vino),var(--madera));
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
 }
 
-header h1{font-size:22px;letter-spacing:2px}
+header h1{
+  font-size:20px;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
 
-/* NAV */
+/* NAV DESKTOP */
 nav{
   display:flex;
   gap:12px;
@@ -60,9 +86,8 @@ nav a{
   font-size:13px;
   font-weight:600;
   border-radius:6px;
-  background:linear-gradient(180deg,#fff,#f1e6dc);
+  background:linear-gradient(180deg,#ffffff,#f1e6dc);
   color:var(--madera);
-  box-shadow:0 2px 0 #c7b3a1;
   transition:.2s;
 }
 
@@ -71,17 +96,22 @@ nav a:hover{
   color:#fff;
 }
 
-/* MENU MOBILE */
+/* MENU TOGGLE */
 .menu-toggle{
   display:none;
   flex-direction:column;
   gap:6px;
   cursor:pointer;
 }
+
 .menu-toggle span{
-  width:26px;height:3px;background:#fff;border-radius:2px;
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
 }
 
+/* OVERLAY */
 #menu-overlay{
   position:fixed;
   inset:0;
@@ -90,9 +120,11 @@ nav a:hover{
   z-index:999;
 }
 
-/* HERO */
+/* =====================
+   HERO
+===================== */
 .hero{
-  height:70vh;
+  height:75vh;
   background:url("foto1.jpeg") center/cover no-repeat;
   display:flex;
   align-items:center;
@@ -105,111 +137,165 @@ nav a:hover{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.6));
+  background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.7));
 }
 
 .hero-content{
   position:relative;
-  max-width:600px;
+  max-width:640px;
 }
 
-.hero h2{font-size:42px;margin-bottom:16px}
-.hero p{font-size:17px;color:var(--gris);margin-bottom:26px}
+.hero h2{
+  font-size:clamp(32px,4vw,46px);
+  line-height:1.15;
+  margin-bottom:18px;
+}
 
-/* BOTONES */
+.hero p{
+  font-size:17px;
+  color:#e5e7eb;
+  margin-bottom:30px;
+}
+
+/* =====================
+   BOTONES
+===================== */
 .btn{
-  display:inline-block;
-  padding:12px 26px;
-  border-radius:30px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 30px;
+  border-radius:999px;
   font-weight:600;
+  font-size:14px;
+  letter-spacing:.4px;
+  transition:.25s;
   margin-right:10px;
-  transition:.3s;
 }
 
 .btn.primary{
-  background:var(--dorado);
+  background:linear-gradient(180deg,var(--dorado),#eab308);
   color:#1c1917;
+  box-shadow:0 8px 25px rgba(250,204,21,.3);
 }
 
 .btn.light{
-  background:#fff;
+  background:#ffffff;
   color:#1c1917;
 }
 
-.btn:hover{transform:translateY(-3px)}
+.btn:hover{
+  transform:translateY(-2px);
+}
 
-/* SECCIONES */
-section{padding:70px 6%}
+/* =====================
+   SECCIONES
+===================== */
+section{
+  padding:70px 6%;
+}
 
 .center-title{
   text-align:center;
-  font-size:32px;
-  margin-bottom:40px;
+  font-size:clamp(26px,3vw,34px);
+  margin-bottom:46px;
   color:var(--dorado);
+  letter-spacing:1px;
 }
 
-/* INFO */
+.center-title::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:3px;
+  background:var(--dorado);
+  margin:14px auto 0;
+  border-radius:2px;
+}
+
+/* =====================
+   INFO CARDS
+===================== */
 .info-wrapper{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:40px;
 }
 
 .info-section{
-  background:linear-gradient(135deg,#0f3a47,#081f2d);
-  padding:28px;
-  border-radius:22px;
-  box-shadow:0 20px 40px rgba(0,0,0,.5);
-  transition:.3s;
+  background:linear-gradient(145deg,#0f3a47,#081f2d);
+  padding:30px;
+  border-radius:26px;
+  box-shadow:0 20px 40px rgba(0,0,0,.55);
+  transition:.35s;
 }
 
 .info-section:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
 }
 
 .info-section img{
   width:100%;
-  height:280px;
+  height:260px;
   object-fit:cover;
-  border-radius:20px;
-  margin-bottom:16px;
+  border-radius:22px;
+  margin-bottom:18px;
 }
 
-.info-section h3{font-size:22px;margin-bottom:10px}
-.info-section p{font-size:15px;color:var(--gris)}
+.info-section h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
 
-/* SLIDERS */
-.menu-slider,.gallery-slider{
+.info-section p{
+  font-size:15px;
+  color:var(--gris);
+}
+
+/* =====================
+   SLIDERS
+===================== */
+.menu-slider,
+.gallery-slider{
   width:100%;
   overflow:hidden;
 }
 
-.menu-track,.gallery-track{
+.menu-track,
+.gallery-track{
   display:flex;
   gap:18px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
 }
 
 .menu-track img{
   width:280px;
   height:280px;
-  border-radius:18px;
   object-fit:cover;
+  border-radius:18px;
   scroll-snap-align:center;
 }
 
 .gallery-track img{
   width:240px;
   height:160px;
-  border-radius:14px;
   object-fit:cover;
+  border-radius:14px;
   scroll-snap-align:center;
 }
 
-/* CONTACTO */
+.menu-track img:hover,
+.gallery-track img:hover{
+  transform:scale(1.05);
+}
+
+/* =====================
+   CONTACTO
+===================== */
 .contact{
   background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
   border-radius:22px;
@@ -222,12 +308,12 @@ section{padding:70px 6%}
 }
 
 .contact-info{
-  flex:1;
+  flex:1 1 300px;
   color:var(--gris);
 }
 
 .contact-map{
-  flex:1;
+  flex:1 1 300px;
   min-height:300px;
   border-radius:14px;
   overflow:hidden;
@@ -239,15 +325,20 @@ section{padding:70px 6%}
   border:0;
 }
 
-/* FOOTER */
+/* =====================
+   FOOTER
+===================== */
 footer{
   background:#020617;
   text-align:center;
-  padding:40px;
-  color:var(--gris);
+  padding:50px 20px;
+  color:#94a3b8;
+  font-size:14px;
 }
 
-/* WHATSAPP */
+/* =====================
+   WHATSAPP
+===================== */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -258,8 +349,11 @@ footer{
   border-radius:999px;
 }
 
-/* MOBILE */
+/* =====================
+   MOBILE
+===================== */
 @media(max-width:768px){
+
   nav{
     position:fixed;
     top:0;
@@ -269,12 +363,31 @@ footer{
     background:#020617;
     flex-direction:column;
     padding:100px 20px;
+    gap:16px;
     transition:.3s;
     z-index:1000;
   }
 
-  nav.show{right:0}
-  .menu-toggle{display:flex}
+  nav.show{
+    right:0;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  #menu-overlay.active{
+    display:block;
+  }
+
+  .hero{
+    height:65vh;
+    padding:0 20px;
+  }
+
+  .btn{
+    margin-bottom:10px;
+  }
 }
 </style>
 </head>
@@ -312,17 +425,17 @@ footer{
     <div class="info-section">
       <img src="foto1.jpeg">
       <h3>Ambiente Familiar</h3>
-      <p>Un espacio elegante y acogedor para disfrutar en familia.</p>
+      <p>Un espacio acogedor diseñado para disfrutar en familia.</p>
     </div>
     <div class="info-section">
       <img src="foto1.jpeg">
       <h3>Cocina Tradicional</h3>
-      <p>Ingredientes frescos y técnicas auténticas que marcan la diferencia.</p>
+      <p>Ingredientes frescos y técnicas auténticas.</p>
     </div>
     <div class="info-section">
       <img src="foto1.jpeg">
       <h3>Eventos Especiales</h3>
-      <p>Celebraciones, reuniones y momentos únicos con atención personalizada.</p>
+      <p>Celebraciones y reuniones con atención personalizada.</p>
     </div>
   </div>
 </section>
@@ -331,8 +444,10 @@ footer{
   <h2 class="center-title">Nuestro Menú</h2>
   <div class="menu-slider">
     <div class="menu-track">
-      <img src="menu1.jpg"><img src="menu2.jpg"><img src="menu3.jpg">
-      <img src="menu4.jpg"><img src="menu5.jpg">
+      <img src="menu1.jpg">
+      <img src="menu2.jpg">
+      <img src="menu3.jpg">
+      <img src="menu4.jpg">
     </div>
   </div>
 </section>
@@ -341,8 +456,10 @@ footer{
   <h2 class="center-title">Instalaciones</h2>
   <div class="gallery-slider">
     <div class="gallery-track">
-      <img src="instalacion1.jpg"><img src="instalacion2.jpg">
-      <img src="instalacion3.jpg"><img src="instalacion4.jpg">
+      <img src="instalacion1.jpg">
+      <img src="instalacion2.jpg">
+      <img src="instalacion3.jpg">
+      <img src="instalacion4.jpg">
     </div>
   </div>
 </section>
@@ -353,7 +470,7 @@ footer{
     <div class="contact-info">
       <p>📍 Hacienda Cuyagualo, Colón</p>
       <p>📞 7629-0176 / 6957-8713</p>
-      <p>⏰ Lun-Jue 7am-8pm | Vie-Dom 7am-9pm</p>
+      <p>⏰ Lun-Jue 7am-8pm · Vie-Dom 7am-9pm</p>
     </div>
     <div class="contact-map">
       <iframe src="https://www.google.com/maps?q=Hacienda+Cuyagualo+Colón+El+Salvador&output=embed"></iframe>
@@ -373,13 +490,15 @@ const overlay=document.getElementById("menu-overlay");
 
 function toggleMenu(){
   menu.classList.toggle("show");
-  overlay.style.display=menu.classList.contains("show")?"block":"none";
+  overlay.classList.toggle("active");
 }
+
 overlay.onclick=toggleMenu;
 </script>
 
 </body>
 </html>
+
 
 
 
