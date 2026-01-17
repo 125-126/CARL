@@ -3,390 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Alazan Griller | Experiencia a la Parrilla</title>
 
-<title>The Alazan Griller | Tradición y Buen Ambiente</title>
-<meta name="description" content="Carnes y parrilladas en un ambiente familiar en Colón, El Salvador.">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* =====================
-   VARIABLES
-===================== */
 :root{
-  --vino:#0ea5a4;
-  --madera:#0284c7;
-  --dorado:#facc15;
-  --oscuro:#ffffff;
-  --gris:#cbd5e1;
-  --fondo:#020617;
+  --gold:#caa65c;
+  --dark:#0b0b0b;
+  --gray:#b3b3b3;
 }
 
-/* =====================
-   RESET
-===================== */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-html,body{
-  width:100%;
-  overflow-x:hidden;
-}
-
 body{
   font-family:'Inter',sans-serif;
-  background:linear-gradient(135deg,#0b1220,#020617);
-  color:var(--oscuro);
-  line-height:1.6;
+  background:var(--dark);
+  color:#fff;
+  overflow-x:hidden;
 }
 
 h1,h2,h3{
   font-family:'Playfair Display',serif;
+  font-weight:700;
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
-/* =====================
-   HEADER
-===================== */
+/* HEADER */
 header{
   position:fixed;
   top:0;
-  left:0;
   width:100%;
-  z-index:1000;
-  background:linear-gradient(90deg,var(--vino),var(--madera));
-  padding:14px 6%;
+  padding:22px 7%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  align-items:center;
+  z-index:1000;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(10px);
 }
 
 header h1{
-  font-size:20px;
-  letter-spacing:2px;
-  white-space:nowrap;
+  font-size:18px;
+  letter-spacing:3px;
 }
 
-/* NAV DESKTOP */
 nav{
   display:flex;
-  gap:12px;
+  gap:32px;
 }
 
 nav a{
-  padding:6px 14px;
   font-size:13px;
-  font-weight:600;
-  border-radius:6px;
-  background:linear-gradient(180deg,#ffffff,#f1e6dc);
-  color:var(--madera);
-  transition:.2s;
+  letter-spacing:2px;
+  color:var(--gray);
+  transition:.3s;
 }
 
 nav a:hover{
-  background:linear-gradient(180deg,var(--vino),#0f766e);
-  color:#fff;
+  color:var(--gold);
 }
 
-/* MENU TOGGLE */
-.menu-toggle{
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-}
-
-.menu-toggle span{
-  width:26px;
-  height:3px;
-  background:#fff;
-  border-radius:2px;
-}
-
-/* OVERLAY */
-#menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  z-index:999;
-}
-
-/* =====================
-   HERO
-===================== */
+/* HERO */
 .hero{
-  height:75vh;
+  height:100vh;
   background:url("foto1.jpeg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  padding:0 6%;
-  margin-top:80px;
   position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:0 7% 90px;
 }
 
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.7));
+  background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.85));
 }
 
 .hero-content{
   position:relative;
-  max-width:640px;
+  max-width:680px;
 }
 
 .hero h2{
-  font-size:clamp(32px,4vw,46px);
-  line-height:1.15;
-  margin-bottom:18px;
+  font-size:clamp(42px,6vw,72px);
+  line-height:1.05;
+  margin-bottom:22px;
 }
 
 .hero p{
-  font-size:17px;
-  color:#e5e7eb;
-  margin-bottom:30px;
-}
-
-/* =====================
-   BOTONES
-===================== */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 30px;
-  border-radius:999px;
-  font-weight:600;
-  font-size:14px;
-  letter-spacing:.4px;
-  transition:.25s;
-  margin-right:10px;
-}
-
-.btn.primary{
-  background:linear-gradient(180deg,var(--dorado),#eab308);
-  color:#1c1917;
-  box-shadow:0 8px 25px rgba(250,204,21,.3);
-}
-
-.btn.light{
-  background:#ffffff;
-  color:#1c1917;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-/* =====================
-   SECCIONES
-===================== */
-section{
-  padding:70px 6%;
-}
-
-.center-title{
-  text-align:center;
-  font-size:clamp(26px,3vw,34px);
-  margin-bottom:46px;
-  color:var(--dorado);
+  font-size:16px;
   letter-spacing:1px;
+  color:var(--gray);
+  max-width:520px;
 }
 
-.center-title::after{
-  content:"";
-  display:block;
-  width:70px;
-  height:3px;
-  background:var(--dorado);
-  margin:14px auto 0;
-  border-radius:2px;
+/* SECTIONS */
+section{
+  padding:120px 7%;
 }
 
-/* =====================
-   INFO CARDS
-===================== */
-.info-wrapper{
-  max-width:1200px;
+.center{
+  max-width:1100px;
   margin:auto;
+}
+
+/* MANIFEST */
+.manifest{
+  text-align:center;
+}
+
+.manifest h2{
+  font-size:clamp(34px,4vw,46px);
+  margin-bottom:28px;
+}
+
+.manifest p{
+  font-size:18px;
+  color:var(--gray);
+  max-width:720px;
+  margin:auto;
+  line-height:1.7;
+}
+
+/* EXPERIENCE */
+.experience{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:60px;
+}
+
+.exp-item h3{
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.exp-item p{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.6;
+}
+
+/* MENU GALLERY */
+.menu-gallery{
+  display:flex;
   gap:40px;
+  overflow-x:auto;
+  padding-bottom:20px;
 }
 
-.info-section{
-  background:linear-gradient(145deg,#0f3a47,#081f2d);
-  padding:30px;
-  border-radius:26px;
-  box-shadow:0 20px 40px rgba(0,0,0,.55);
-  transition:.35s;
-}
-
-.info-section:hover{
-  transform:translateY(-8px);
-}
-
-.info-section img{
-  width:100%;
-  height:260px;
+.menu-gallery img{
+  width:340px;
+  height:460px;
   object-fit:cover;
   border-radius:22px;
-  margin-bottom:18px;
+  flex-shrink:0;
+  transition:.4s;
 }
 
-.info-section h3{
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.info-section p{
-  font-size:15px;
-  color:var(--gris);
-}
-
-/* =====================
-   SLIDERS
-===================== */
-.menu-slider,
-.gallery-slider{
-  width:100%;
-  overflow:hidden;
-}
-
-.menu-track,
-.gallery-track{
-  display:flex;
-  gap:18px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-}
-
-.menu-track img{
-  width:280px;
-  height:280px;
-  object-fit:cover;
-  border-radius:18px;
-  scroll-snap-align:center;
-}
-
-.gallery-track img{
-  width:240px;
-  height:160px;
-  object-fit:cover;
-  border-radius:14px;
-  scroll-snap-align:center;
-}
-
-.menu-track img:hover,
-.gallery-track img:hover{
+.menu-gallery img:hover{
   transform:scale(1.05);
 }
 
-/* =====================
-   CONTACTO
-===================== */
-.contact{
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
-  border-radius:22px;
+/* LOCATION */
+.location{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
-.contact-container{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
+.location p{
+  color:var(--gray);
+  font-size:16px;
+  line-height:1.7;
 }
 
-.contact-info{
-  flex:1 1 300px;
-  color:var(--gris);
-}
-
-.contact-map{
-  flex:1 1 300px;
-  min-height:300px;
-  border-radius:14px;
-  overflow:hidden;
-}
-
-.contact-map iframe{
+iframe{
   width:100%;
-  height:100%;
+  height:360px;
+  border-radius:20px;
   border:0;
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* FOOTER */
 footer{
-  background:#020617;
+  padding:80px 20px;
   text-align:center;
-  padding:50px 20px;
-  color:#94a3b8;
-  font-size:14px;
+  font-size:13px;
+  letter-spacing:2px;
+  color:var(--gray);
 }
 
-/* =====================
-   WHATSAPP
-===================== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:999px;
-}
-
-/* =====================
-   MOBILE
-===================== */
+/* MOBILE */
 @media(max-width:768px){
-
   nav{
-    position:fixed;
-    top:0;
-    right:-100%;
-    width:75%;
-    height:100vh;
-    background:#020617;
-    flex-direction:column;
-    padding:100px 20px;
-    gap:16px;
-    transition:.3s;
-    z-index:1000;
+    display:none;
   }
 
-  nav.show{
-    right:0;
-  }
-
-  .menu-toggle{
-    display:flex;
-  }
-
-  #menu-overlay.active{
-    display:block;
+  section{
+    padding:90px 24px;
   }
 
   .hero{
-    height:65vh;
-    padding:0 20px;
+    padding:0 24px 70px;
   }
 
-  .btn{
-    margin-bottom:10px;
+  .location{
+    grid-template-columns:1fr;
+  }
+
+  .menu-gallery img{
+    width:260px;
+    height:360px;
   }
 }
 </style>
@@ -396,108 +234,78 @@ footer{
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
-
-  <nav id="nav-menu">
-    <a href="index.html">Inicio</a>
-    <a href="menu.html">Menú</a>
-    <a href="eventos.html">Eventos</a>
-    <a href="contacto.html">Contacto</a>
+  <nav>
+    <a href="#">INICIO</a>
+    <a href="#">EXPERIENCIA</a>
+    <a href="#">MENÚ</a>
+    <a href="#">UBICACIÓN</a>
   </nav>
 </header>
 
-<div id="menu-overlay"></div>
-
 <section class="hero">
   <div class="hero-content">
-    <h2>Tradición, Sabor y Buen Ambiente</h2>
-    <p>Carnes y parrilladas preparadas con pasión en un espacio ideal para compartir.</p>
-    <a href="menu.html" class="btn primary">Ver Menú</a>
-    <a href="#contacto" class="btn light">Reservar</a>
+    <h2>Una experiencia<br>a la parrilla</h2>
+    <p>Fuego, tradición y noches que se recuerdan.</p>
+  </div>
+</section>
+
+<section class="manifest">
+  <div class="center">
+    <h2>Más que un restaurante</h2>
+    <p>
+      Cada corte, cada fuego y cada noche están pensados
+      para crear una experiencia auténtica, donde el tiempo
+      se detiene y el sabor manda.
+    </p>
   </div>
 </section>
 
 <section>
-  <div class="info-wrapper">
-    <div class="info-section">
-      <img src="foto1.jpeg">
-      <h3>Ambiente Familiar</h3>
-      <p>Un espacio acogedor diseñado para disfrutar en familia.</p>
+  <div class="center experience">
+    <div class="exp-item">
+      <h3>Fuego Real</h3>
+      <p>Cocción lenta, brasas vivas y respeto absoluto por el producto.</p>
     </div>
-    <div class="info-section">
-      <img src="foto1.jpeg">
-      <h3>Cocina Tradicional</h3>
-      <p>Ingredientes frescos y técnicas auténticas.</p>
+    <div class="exp-item">
+      <h3>Ambiente Nocturno</h3>
+      <p>Un espacio elegante para compartir, celebrar y desconectar.</p>
     </div>
-    <div class="info-section">
-      <img src="foto1.jpeg">
-      <h3>Eventos Especiales</h3>
-      <p>Celebraciones y reuniones con atención personalizada.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2 class="center-title">Nuestro Menú</h2>
-  <div class="menu-slider">
-    <div class="menu-track">
-      <img src="menu1.jpg">
-      <img src="menu2.jpg">
-      <img src="menu3.jpg">
-      <img src="menu4.jpg">
+    <div class="exp-item">
+      <h3>Tradición</h3>
+      <p>Sabores que nacen de la experiencia y el cuidado en cada detalle.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2 class="center-title">Instalaciones</h2>
-  <div class="gallery-slider">
-    <div class="gallery-track">
-      <img src="instalacion1.jpg">
-      <img src="instalacion2.jpg">
-      <img src="instalacion3.jpg">
-      <img src="instalacion4.jpg">
-    </div>
+  <div class="menu-gallery">
+    <img src="menu1.jpg">
+    <img src="menu2.jpg">
+    <img src="menu3.jpg">
+    <img src="menu4.jpg">
   </div>
 </section>
 
-<section id="contacto" class="contact">
-  <h2 class="center-title">Contacto y Ubicación</h2>
-  <div class="contact-container">
-    <div class="contact-info">
-      <p>📍 Hacienda Cuyagualo, Colón</p>
-      <p>📞 7629-0176 / 6957-8713</p>
-      <p>⏰ Lun-Jue 7am-8pm · Vie-Dom 7am-9pm</p>
+<section>
+  <div class="center location">
+    <div>
+      <h2>Ubicación</h2>
+      <p>
+        Hacienda Cuyagualo, Colón.<br>
+        Un destino donde la parrilla se convierte en experiencia.
+      </p>
     </div>
-    <div class="contact-map">
-      <iframe src="https://www.google.com/maps?q=Hacienda+Cuyagualo+Colón+El+Salvador&output=embed"></iframe>
-    </div>
+    <iframe src="https://www.google.com/maps?q=Hacienda+Cuyagualo+Colón+El+Salvador&output=embed"></iframe>
   </div>
 </section>
 
 <footer>
-  © 2026 The Alazan Griller · Colón, El Salvador
+  © 2026 THE ALAZAN GRILLER · EL SALVADOR
 </footer>
-
-<a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
-
-<script>
-const menu=document.getElementById("nav-menu");
-const overlay=document.getElementById("menu-overlay");
-
-function toggleMenu(){
-  menu.classList.toggle("show");
-  overlay.classList.toggle("active");
-}
-
-overlay.onclick=toggleMenu;
-</script>
 
 </body>
 </html>
+
 
 
 
