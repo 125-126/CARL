@@ -3,343 +3,880 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Alazan Griller | Restaurante & Parrilla</title>
+<title>Restaurante El Rodeo | Tradición y Buen Ambiente</title>
+<meta name="description" content="Restaurante El Rodeo. Carnes, parrilladas y comida tradicional en un ambiente familiar en Colón, El Salvador.">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --vino:#8b1d18;
-  --oro:#caa65c;
-  --oscuro:#1c1c1c;
-  --gris:#555;
-  --fondo:#f7f5f2;
+  /* ACENTOS */
+  --vino: #0ea5a4;
+  --madera: #0284c7;
+  --dorado: #facc15;
+
+  /* TEXTO */
+  --oscuro: #ffffff;
+  --gris: #cbd5e1;
+
+  /* FONDOS */
+  --cafe-claro: #061722;
+  --crema: rgba(255,255,255,0.06);
+  --beige: rgba(255,255,255,0.04);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--fondo);
-  color:#222;
-  overflow-x:hidden;
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
+
+
 
 h1,h2,h3{
   font-family:'Playfair Display',serif;
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
 /* HEADER */
 header{
-  background:#fff;
-  padding:16px 7%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-  position:sticky;
-  top:0;
-  z-index:1000;
+  align-items:center;
+  padding:20px 7%;
+  background:linear-gradient(90deg,var(--vino),var(--madera));
+  box-shadow:0 10px 35px rgba(0,0,0,0.45);
 }
 
 header h1{
-  font-size:22px;
-  color:var(--vino);
+  font-size:28px;
+  color:#fff;
+  letter-spacing:2px;
 }
 
-nav{
-  display:flex;
-  gap:24px;
-}
-
+  
 nav a{
-  font-size:14px;
-  font-weight:500;
-  color:#333;
+  margin-left:0;
+  font-weight:400;
+  transition:all 0.3s;
+  color:#fff;
 }
 
 nav a:hover{
-  color:var(--vino);
+  color:var(--dorado);
 }
 
 /* HERO */
 .hero{
-  background:url("foto1.jpeg") center/cover no-repeat;
-  min-height:75vh;
   position:relative;
+  height:55vh;
+  background:url("foto1.jpeg") center / cover no-repeat;
   display:flex;
   align-items:center;
-  padding:0 7%;
+  padding:0 6%;
 }
 
-.hero::after{
-  content:"";
+.hero-overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.25));
 }
 
 .hero-content{
   position:relative;
-  color:#fff;
   max-width:600px;
+  color:#fff;
 }
 
 .hero h2{
-  font-size:clamp(36px,5vw,56px);
-  margin-bottom:18px;
+  font-size:38px;
+  margin-bottom:16px;
 }
 
 .hero p{
-  font-size:18px;
-  line-height:1.6;
+  font-size:17px;
+  opacity:0.95;
 }
 
-.hero a{
+/* BOTONES */
+.btn{
   display:inline-block;
-  margin-top:26px;
-  padding:14px 34px;
-  background:var(--oro);
-  color:#222;
+  padding:12px 26px;
   border-radius:30px;
   font-weight:600;
+  margin-right:10px;
+  transition:all 0.3s;
+}
+
+.btn.primary{
+  background:var(--dorado);
+  color:#081226;
+}
+
+.btn.primary:hover{
+  transform:translateY(-3px);
+}
+
+.btn.light{
+  background:#fff;
+  color:#081226;
 }
 
 /* SECCIONES */
 section{
-  padding:80px 7%;
-}
-
-.center{
-  max-width:1200px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:50px;
-}
-
-.section-title h2{
-  font-size:36px;
-  color:var(--vino);
-}
-
-.section-title p{
-  color:var(--gris);
-  margin-top:10px;
+  padding:55px 7%;
 }
 
 /* INFO */
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:40px;
-}
-
-.info-card{
-  background:#fff;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 18px 40px rgba(0,0,0,.12);
-}
-
-.info-card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.info-card div{
+.info-section{
+  position:relative; /* CORREGIDO para pseudo-elementos */
+  display:flex;
+  flex-direction:column;
+  gap:18px;
   padding:26px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#0f3a47,#081f2d);
+  box-shadow:0 18px 40px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-card h3{
-  margin-bottom:12px;
-  color:var(--vino);
+.info-section img{
+  width:100%;
+  max-height:320px;
+  object-fit:cover;
+  border-radius:26px;
+  transform:rotate(-1.2deg);
+  box-shadow:0 20px 45px rgba(0,0,0,0.55),0 0 0 4px rgba(250,204,21,0.25);
+  transition: all 0.4s ease;
 }
 
-.info-card p{
-  color:var(--gris);
+.info-section:hover img{
+  transform:rotate(0deg) scale(1.03);
+}
+
+.info-text{
+  flex:1;
+}
+
+.info-text h2{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.info-text p{
+  font-size:15px;
   line-height:1.6;
 }
 
-/* MENÚ */
-.menu-slider{
-  display:flex;
-  gap:24px;
-  overflow-x:auto;
-  padding-bottom:10px;
+.info-section::before{
+  content:"";
+  position:absolute;
+  inset:-20%; /* AJUSTADO desde -40% */
+  background:radial-gradient(circle at top left, rgba(34,211,238,0.15), transparent 60%);
+  z-index:0;
 }
 
-.menu-slider img{
-  width:280px;
-  height:280px;
+.info-section *{
+  position:relative;
+  z-index:1;
+}
+
+.info-section:hover{
+  transform:translateY(-6px);
+  box-shadow:0 28px 55px rgba(0,0,0,0.6);
+}
+
+
+/* Hover combinado */
+.menu-card:hover{
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* SLIDER MENU */
+.menu-slider{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  margin-top:40px;
+}
+
+
+/* ===== GALERIA ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.gallery-slider{
+  width:100%;
+  overflow:hidden;
+  margin-top:30px;
+}
+
+.menu-slider,
+.gallery-slider{
+  overflow:hidden;
+  width:100%;
+}
+
+.gallery-track img:hover{
+  transform:scale(1.05);
+}
+
+/* ===== CONTACTO ===== */
+.contact{
+  background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  padding:70px 7%;
+  text-align:center;
+  border-radius:22px;
+}
+
+.contact h2{
+  font-size:32px;
+}
+
+.contact p{
+  font-size:16px;
+  color:var(--gris);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#020617;
+  color:var(--gris);
+  text-align:center;
+  padding:50px;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-content{
+  background:#020617;
+  padding:40px;
+  max-width:520px;
+  width:90%;
   border-radius:18px;
+  text-align:center;
+}
+
+.modal-content h2{
+  color:var(--dorado);
+}
+
+.modal-content p{
+  color:var(--gris);
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ===== NAV BOTONES ===== */
+nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+nav a.nav-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 14px;
+  font-size:13px;
+  font-weight:600;
+  border-radius:6px;
+  background:linear-gradient(180deg,#ffffff,#f1e6dc);
+  color:var(--madera);
+  border:1px solid #d2c2b2;
+  box-shadow:0 2px 0 #c7b3a1,0 6px 14px rgba(0,0,0,0.18);
+  transition:all 0.2s ease;
+}
+
+nav a.nav-btn:hover{
+  background:linear-gradient(180deg,var(--vino),#8b342c);
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 3px 0 #5e211b,0 10px 22px rgba(0,0,0,0.35);
+}
+
+nav a.nav-btn:active{
+  transform:translateY(2px);
+  box-shadow:0 1px 0 #5e211b,0 4px 10px rgba(0,0,0,0.25);
+}
+
+nav a.nav-btn.active{
+  background:linear-gradient(180deg,var(--dorado),#caa233);
+  color:#3a2a10;
+  border-color:#b9972e;
+  box-shadow:0 2px 0 #b9972e,0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* ===== INFO WRAPPER ===== */
+.info-wrapper{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
+  max-width:1200px;
+  margin:70px auto;
+  padding:0; /* eliminado padding duplicado */
+}
+
+/* MEDIA QUERIES UNIFICADAS */
+@media(max-width:900px){
+  .info-wrapper{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+  .info-section{
+    padding:40px;
+  }
+}
+
+/* ===== CENTRADOS ===== */
+.center-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+
+/* SLIDER MENÚ: DERECHA A IZQUIERDA */
+.menu-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.menu-gallery-track img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.menu-gallery-track img:hover {
+  transform: scale(1.05);
+}
+
+.contact {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  padding: 70px 7%;
+  border-radius: 22px;
+}
+
+#contacto h2 {
+  font-size:25px;      /* tamaño */
+  color: var(--oscuro); /* color blanco */
+  text-align: center;     /* alineación a la izquierda */
+  margin-bottom:25px;   /* separación del bloque de info */
+}
+
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap; /* para que en móviles se acomode debajo */
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.contact-info {
+  flex: 1 1 350px; /* ocupa más espacio que el mapa */
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gris);
+}
+
+.contact-info ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 5px 0 15px 0;
+}
+
+.contact-info ul li {
+  margin-left: 20px;
+  position: relative;
+}
+
+.contact-info ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--dorado);
+}
+
+.contact-map {
+  flex: 1 1 400px;
+  min-height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+  /* ===== HEADER MOBILE DEFINITIVO ===== */
+
+/* ===== MENU HAMBURGUESA ===== */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* ===== OVERLAY MENU ===== */
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  z-index:9998;
+}
+
+#menu-overlay.active{
+  display:block;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width:768px){
+
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:10000;
+    padding:14px 16px;
+  }
+
+  body{
+    padding-top:80px;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto;
+    z-index:10001;
+  }
+
+  nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:75%;
+    height:100vh;
+    background:#020617;
+    display:flex;
+    flex-direction:column;
+    padding:100px 20px 20px;
+    gap:14px;
+    transition:right 0.3s ease;
+    z-index:9999;
+  }
+
+  nav.show{
+    right:0;
+  }
+
+  nav a.nav-btn{
+    width:100%;
+    text-align:center;
+  }
+}
+
+.menu-toggle span{
+  width:26px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+@media (max-width:768px){
+
+  header{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 18px;
+  }
+
+  header h1{
+    font-size:20px;
+    white-space:nowrap;
+  }
+
+  .menu-toggle{
+    display:flex;
+    margin-left:auto; /* 🔴 AQUÍ QUEDA A LA DERECHA */
+  }
+
+  nav{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    margin-top:16px;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a.nav-btn{
+    width:100%;
+    margin:8px 0;
+    text-align:center;
+  }
+}
+  body{
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  color:var(--oscuro);
+  background:linear-gradient(135deg,#1c1c1c,#2a2a2a);
+  overflow-x:hidden; /* 🔥 EVITA EL DESLIZ NEGRO */
+}
+  .menu-slider,
+.gallery-slider{
+  max-width:100vw;
+  overflow:hidden;
+}
+/* ===== FIX DEFINITIVO SLIDERS ===== */
+
+
+/* SLIDER MENÚ */
+.menu-slider{
+  width:100%;
+  overflow:hidden;
+}
+
+.menu-gallery-track img{
+  width:300px;
+  height:300px;
   object-fit:cover;
+  border-radius:18px;
   flex-shrink:0;
 }
 
 /* GALERÍA */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
+.gallery-slider{
+  width:100%;
+  overflow:hidden;
 }
 
-.gallery img{
-  width:100%;
-  height:200px;
+
+
+.gallery-slider:hover .gallery-track{
+  animation-play-state:paused;
+}
+
+.gallery-track img{
+  width:260px;
+  height:180px;
   object-fit:cover;
-  border-radius:18px;
+  border-radius:14px;
+  flex-shrink:0;
 }
 
-/* CONTACTO */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
-}
-
-.contact p{
-  color:var(--gris);
-  line-height:1.6;
-}
-
-iframe{
-  width:100%;
-  height:320px;
-  border-radius:18px;
-  border:0;
-}
-
-/* FOOTER */
-footer{
-  background:#111;
-  color:#aaa;
-  padding:40px;
-  text-align:center;
-}
 
 /* MOBILE */
 @media(max-width:768px){
-  nav{display:none;}
-  section{padding:60px 24px;}
-  .contact{grid-template-columns:1fr;}
+  .menu-gallery-track img{
+    width:220px;
+    height:220px;
+  }
+
+  .gallery-track img{
+    width:200px;
+    height:140px;
+  }
 }
+
+
+/* ===============================
+   FIX FINAL DEFINITIVO – NO SCROLL NEGRO
+   =============================== */
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* CONTENEDORES */
+.menu-slider,
+.gallery-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* TRACKS */
+.menu-gallery-track,
+.gallery-track {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ITEMS */
+.menu-gallery-track img,
+.gallery-track img {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+/* TAMAÑOS */
+.menu-gallery-track img {
+  width: 280px;
+  height: 280px;
+}
+
+.gallery-track img {
+  width: 240px;
+  height: 160px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-gallery-track img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .gallery-track img {
+    width: 200px;
+    height: 140px;
+  }
+}
+
+ 
 </style>
 </head>
-
 <body>
 
 <header>
   <h1>THE ALAZAN GRILLER</h1>
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Menú</a>
-    <a href="#">Eventos</a>
-    <a href="#">Contacto</a>
+
+  <!-- BOTÓN HAMBURGUESA -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="index.html" class="nav-btn">INICIO</a>
+    <a href="quienes-somos.html" class="nav-btn">¿QUIENES SOMOS?</a>
+    <a href="menu.html" class="nav-btn">MENU</a>
+    <a href="eventos.html" class="nav-btn">EVENTOS</a>
+    <a href="contacto.html" class="nav-btn">CONTACTOS</a>
+    <a href="ubicacion.html" class="nav-btn">UBICACION</a>
   </nav>
 </header>
 
+  <div id="menu-overlay"></div>
 <section class="hero">
-  <div class="hero-content">
-    <h2>Tradición, sabor y ambiente familiar</h2>
-    <p>Parrilla, cocina salvadoreña y un espacio pensado para compartir.</p>
-    <a href="#">Ver Menú</a>
+  <div class="hero-overlay"></div>
+  <div class="hero-content"></div>
+</section>
+  
+<!-- OVERLAY PARA CERRAR MENÚ HAMBURGUESA -->
+
+<section class="info-wrapper">
+
+  <div class="info-section">
+    <img src="foto1.jpeg" alt="Ambiente familiar Restaurante El Rodeo">
+    <div class="info-text">
+      <h2>Un espacio para todos</h2>
+      <p>
+        En El Rodeo ofrecemos un ambiente elegante y acogedor, perfecto tanto para
+        familias como para quienes buscan disfrutar de buena comida en un espacio
+        de calidad. Cada visita es una experiencia gastronómica memorable.
+      </p>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <img src="foto1.jpeg" alt="Platillo Restaurante El Rodeo">
+    <div class="info-text">
+      <h2>Auténtico sabor salvadoreño</h2>
+      <p>
+        Nuestras carnes y parrilladas son preparadas con ingredientes frescos y
+        técnicas tradicionales que resaltan el sabor de cada plato, cuidando siempre
+        la presentación y la calidad.
+      </p>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <img src="foto1.jpeg" alt="Platillo Restaurante El Rodeo">
+    <div class="info-text">
+      <h2>Auténtico sabor salvadoreño</h2>
+      <p>
+        Nuestras carnes y parrilladas son preparadas con ingredientes frescos y
+        técnicas tradicionales que resaltan el sabor de cada plato, cuidando siempre
+        la presentación y la calidad.
+      </p>
+    </div>
+  </div>
+
+</section> <!-- 🔹 Cierre correcto de info-wrapper -->
+
+<!-- ===== SLIDER DE MENÚ ===== -->
+<section id="menu-galeria" class="bg-beige">
+  <h2 class="center-title">NUESTROS MENÚ</h2>
+  <div class="menu-slider">
+    <div class="menu-gallery-track">
+      <img src="menu1.jpg" alt="Menú 1">
+      <img src="menu2.jpg" alt="Menú 2">
+      <img src="menu3.jpg" alt="Menú 3">
+      <img src="menu4.jpg" alt="Menú 4">
+      <img src="menu5.jpg" alt="Menú 5">
+      <img src="menu6.jpg" alt="Menú 6">
+      <img src="menu7.jpg" alt="Menú 7">
+      <img src="menu8.jpg" alt="Menú 8">
+      <img src="menu9.jpg" alt="Menú 9">
+      <img src="menu10.jpg" alt="Menú 10">
+    </div>
   </div>
 </section>
 
-<section>
-  <div class="center section-title">
-    <h2>Nuestra Experiencia</h2>
-    <p>Mucho más que comida</p>
-  </div>
-
-  <div class="center info-grid">
-    <div class="info-card">
-      <img src="foto1.jpeg">
-      <div>
-        <h3>Ambiente Familiar</h3>
-        <p>Espacios amplios y cómodos para disfrutar con familia y amigos.</p>
-      </div>
-    </div>
-
-    <div class="info-card">
-      <img src="foto1.jpeg">
-      <div>
-        <h3>Parrilla Artesanal</h3>
-        <p>Cortes seleccionados preparados al punto exacto.</p>
-      </div>
-    </div>
-
-    <div class="info-card">
-      <img src="foto1.jpeg">
-      <div>
-        <h3>Eventos Especiales</h3>
-        <p>Celebraciones, reuniones y momentos inolvidables.</p>
-      </div>
+<!-- ===== GALERÍA DE INSTALACIONES ===== -->
+<section id="galeria" class="bg-beige">
+  <h2 class="center-title">INSTALACIONES</h2>
+  <div class="gallery-slider">
+    <div class="gallery-track">
+      <img src="instalacion1.jpg" alt="Instalación 1">
+      <img src="instalacion2.jpg" alt="Instalación 2">
+      <img src="instalacion3.jpg" alt="Instalación 3">
+      <img src="instalacion4.jpg" alt="Instalación 4">
+      <img src="instalacion5.jpg" alt="Instalación 5">
+      <img src="instalacion6.jpg" alt="Instalación 6">
+      <img src="instalacion7.jpg" alt="Instalación 7">
+      <img src="instalacion8.jpg" alt="Instalación 8">
+      <img src="instalacion9.jpg" alt="Instalación 9">
+      <img src="instalacion10.jpg" alt="Instalación 10">
+      <img src="instalacion11.jpg" alt="Instalación 11">
+      <img src="instalacion12.jpg" alt="Instalación 12">
     </div>
   </div>
 </section>
 
-<section>
-  <div class="section-title">
-    <h2>Nuestro Menú</h2>
-    <p>Platos que hablan por sí solos</p>
-  </div>
 
-  <div class="menu-slider center">
-    <img src="menu1.jpg">
-    <img src="menu2.jpg">
-    <img src="menu3.jpg">
-    <img src="menu4.jpg">
-  </div>
-</section>
-
-<section>
-  <div class="section-title">
-    <h2>Contacto y Ubicación</h2>
-  </div>
-
-  <div class="center contact">
-    <div>
-      <p><strong>Dirección:</strong> Hacienda Cuyagualo, Colón</p>
-      <p><strong>Tel:</strong> 7629-0176 / 6957-8713</p>
-      <p><strong>Horario:</strong> Lunes a Domingo</p>
+<section id="contacto" class="contact bg-crema">
+  <h2>CONTACTO Y UBICACIÓN</h2>
+  <div class="contact-container">
+    <!-- Información -->
+    <div class="contact-info">
+      <p>📍 <strong>Dirección:</strong> Hacienda Cuyagualo, Carretera a Sonsonate Km 28, Polígono B Nº 131, Colón</p>
+      <p>📞 <strong>Teléfonos:</strong></p>
+      <ul>
+        <li>7629-0176</li>
+        <li>6957-8713</li>
+      </ul>
+      <p>⏰ <strong>Horarios de Atención:</strong></p>
+      <ul>
+        <li>Lunes a Jueves: 7:00 a.m – 8:00 p.m</li>
+        <li>Viernes a Domingo: 7:00 a.m – 9:00 p.m</li>
+      </ul>
     </div>
 
-    <iframe src="https://www.google.com/maps?q=Hacienda+Cuyagualo+Colón+El+Salvador&output=embed"></iframe>
+    <!-- Mapa -->
+    <div class="contact-map">
+      <iframe 
+        src="https://www.google.com/maps?q=Hacienda+Cuyagualo+Carretera+a+Sonsonate+Km+28+Colón+El+Salvador&output=embed" 
+        loading="lazy" 
+        title="Ubicación del Restaurante"
+      ></iframe>
+    </div>
   </div>
 </section>
+
 
 <footer>
-  © 2026 The Alazan Griller · El Salvador
+  <p>© 2026 The Alazan Griller. Todos los derechos reservados.</p>
 </footer>
 
+<a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
+<script>
+const menu = document.getElementById("nav-menu");
+const overlay = document.getElementById("menu-overlay");
+
+function toggleMenu(){
+  menu.classList.toggle("show");
+  overlay.classList.toggle("active");
+}
+
+/* cerrar tocando fuera */
+overlay.addEventListener("click", () => {
+  menu.classList.remove("show");
+  overlay.classList.remove("active");
+});
+
+/* cerrar al tocar un link */
+document.querySelectorAll("#nav-menu a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    menu.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+});
+</script>
+
+  <div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeInfo()">&times;</span>
+    <h2 id="infoTitle"></h2>
+    <p id="infoText"></p>
+  </div>
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
