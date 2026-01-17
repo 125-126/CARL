@@ -1,215 +1,385 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    < title>Restaurante El Rodeo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>The Alazan Griller | Tradición y Buen Ambiente</title>
+<meta name="description" content="Carnes, parrilladas y comida tradicional en un ambiente familiar en Colón, El Salvador.">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-        body {
-            background: #f5f5f5;
-            color: #333;
-        }
+<style>
+:root{
+  --vino:#0ea5a4;
+  --madera:#0284c7;
+  --dorado:#facc15;
+  --oscuro:#ffffff;
+  --gris:#cbd5e1;
+  --fondo:#020617;
+}
 
-        header {
-            background: #7a1f1f;
-            color: white;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: auto;
-        }
+body{
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,#0b1220,#020617);
+  color:var(--oscuro);
+  overflow-x:hidden;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
+h1,h2,h3{font-family:'Playfair Display',serif}
+a{text-decoration:none;color:inherit}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 6%;
+  background:linear-gradient(90deg,var(--vino),var(--madera));
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
 
-        .hero {
-            background: url("img/portada.jpg") center/cover no-repeat;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
+header h1{font-size:22px;letter-spacing:2px}
 
-        .hero h1 {
-            font-size: 3rem;
-            background: rgba(0,0,0,0.6);
-            padding: 20px;
-            border-radius: 10px;
-        }
+/* NAV */
+nav{
+  display:flex;
+  gap:12px;
+}
 
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
-        }
+nav a{
+  padding:6px 14px;
+  font-size:13px;
+  font-weight:600;
+  border-radius:6px;
+  background:linear-gradient(180deg,#fff,#f1e6dc);
+  color:var(--madera);
+  box-shadow:0 2px 0 #c7b3a1;
+  transition:.2s;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #7a1f1f;
-        }
+nav a:hover{
+  background:linear-gradient(180deg,var(--vino),#0f766e);
+  color:#fff;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+/* MENU MOBILE */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+.menu-toggle span{
+  width:26px;height:3px;background:#fff;border-radius:2px;
+}
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+#menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  z-index:999;
+}
 
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+/* HERO */
+.hero{
+  height:70vh;
+  background:url("foto1.jpeg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:0 6%;
+  margin-top:80px;
+  position:relative;
+}
 
-        .card .content {
-            padding: 15px;
-        }
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.6));
+}
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
+.hero-content{
+  position:relative;
+  max-width:600px;
+}
 
-        .price {
-            color: #7a1f1f;
-            font-weight: bold;
-        }
+.hero h2{font-size:42px;margin-bottom:16px}
+.hero p{font-size:17px;color:var(--gris);margin-bottom:26px}
 
-        .contact {
-            text-align: center;
-        }
+/* BOTONES */
+.btn{
+  display:inline-block;
+  padding:12px 26px;
+  border-radius:30px;
+  font-weight:600;
+  margin-right:10px;
+  transition:.3s;
+}
 
-        .contact a {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            background: #7a1f1f;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-        }
+.btn.primary{
+  background:var(--dorado);
+  color:#1c1917;
+}
 
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+.btn.light{
+  background:#fff;
+  color:#1c1917;
+}
 
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+.btn:hover{transform:translateY(-3px)}
+
+/* SECCIONES */
+section{padding:70px 6%}
+
+.center-title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:40px;
+  color:var(--dorado);
+}
+
+/* INFO */
+.info-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+}
+
+.info-section{
+  background:linear-gradient(135deg,#0f3a47,#081f2d);
+  padding:28px;
+  border-radius:22px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+  transition:.3s;
+}
+
+.info-section:hover{
+  transform:translateY(-6px);
+}
+
+.info-section img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:16px;
+}
+
+.info-section h3{font-size:22px;margin-bottom:10px}
+.info-section p{font-size:15px;color:var(--gris)}
+
+/* SLIDERS */
+.menu-slider,.gallery-slider{
+  width:100%;
+  overflow:hidden;
+}
+
+.menu-track,.gallery-track{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+}
+
+.menu-track img{
+  width:280px;
+  height:280px;
+  border-radius:18px;
+  object-fit:cover;
+  scroll-snap-align:center;
+}
+
+.gallery-track img{
+  width:240px;
+  height:160px;
+  border-radius:14px;
+  object-fit:cover;
+  scroll-snap-align:center;
+}
+
+/* CONTACTO */
+.contact{
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  border-radius:22px;
+}
+
+.contact-container{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.contact-info{
+  flex:1;
+  color:var(--gris);
+}
+
+.contact-map{
+  flex:1;
+  min-height:300px;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.contact-map iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  text-align:center;
+  padding:40px;
+  color:var(--gris);
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:999px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:75%;
+    height:100vh;
+    background:#020617;
+    flex-direction:column;
+    padding:100px 20px;
+    transition:.3s;
+    z-index:1000;
+  }
+
+  nav.show{right:0}
+  .menu-toggle{display:flex}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <nav>
-        <h2>El Rodeo</h2>
-        <div>
-            <a href="#inicio">Inicio</a>
-            <a href="#menu">Menú</a>
-            <a href="#contacto">Contacto</a>
-        </div>
-    </nav>
+  <h1>THE ALAZAN GRILLER</h1>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="index.html">Inicio</a>
+    <a href="menu.html">Menú</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
 </header>
 
-<section class="hero" id="inicio">
-    <h1>Auténtico Sabor Salvadoreño</h1>
+<div id="menu-overlay"></div>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Tradición, Sabor y Buen Ambiente</h2>
+    <p>Carnes y parrilladas preparadas con pasión en un espacio ideal para compartir.</p>
+    <a href="menu.html" class="btn primary">Ver Menú</a>
+    <a href="#contacto" class="btn light">Reservar</a>
+  </div>
 </section>
 
 <section>
-    <h2>¿Quiénes Somos?</h2>
-    <p style="text-align:center;">
-        En Restaurante El Rodeo ofrecemos un ambiente familiar con las mejores carnes,
-        parrilladas y comida típica salvadoreña.
-    </p>
+  <div class="info-wrapper">
+    <div class="info-section">
+      <img src="foto1.jpeg">
+      <h3>Ambiente Familiar</h3>
+      <p>Un espacio elegante y acogedor para disfrutar en familia.</p>
+    </div>
+    <div class="info-section">
+      <img src="foto1.jpeg">
+      <h3>Cocina Tradicional</h3>
+      <p>Ingredientes frescos y técnicas auténticas que marcan la diferencia.</p>
+    </div>
+    <div class="info-section">
+      <img src="foto1.jpeg">
+      <h3>Eventos Especiales</h3>
+      <p>Celebraciones, reuniones y momentos únicos con atención personalizada.</p>
+    </div>
+  </div>
 </section>
 
-<section id="menu">
-    <h2>Nuestro Menú</h2>
-    <div class="cards">
-        <div class="card">
-            <img src="img/carne.jpg" alt="Carne asada">
-            <div class="content">
-                <h3>Carne Asada</h3>
-                <p>Jugosa carne a la parrilla.</p>
-                <p class="price">$8.50</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="img/pollo.jpg" alt="Pollo asado">
-            <div class="content">
-                <h3>Pollo Asado</h3>
-                <p>Pollo marinado con especias.</p>
-                <p class="price">$7.00</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="img/parrillada.jpg" alt="Parrillada">
-            <div class="content">
-                <h3>Parrillada Mixta</h3>
-                <p>Carne, pollo y chorizo.</p>
-                <p class="price">$12.00</p>
-            </div>
-        </div>
+<section>
+  <h2 class="center-title">Nuestro Menú</h2>
+  <div class="menu-slider">
+    <div class="menu-track">
+      <img src="menu1.jpg"><img src="menu2.jpg"><img src="menu3.jpg">
+      <img src="menu4.jpg"><img src="menu5.jpg">
     </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="center-title">Instalaciones</h2>
+  <div class="gallery-slider">
+    <div class="gallery-track">
+      <img src="instalacion1.jpg"><img src="instalacion2.jpg">
+      <img src="instalacion3.jpg"><img src="instalacion4.jpg">
+    </div>
+  </div>
 </section>
 
 <section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <p>📍 El Salvador</p>
-    <p>📞 0000-0000</p>
-    <a href="https://wa.me/50300000000" target="_blank">WhatsApp</a>
+  <h2 class="center-title">Contacto y Ubicación</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p>📍 Hacienda Cuyagualo, Colón</p>
+      <p>📞 7629-0176 / 6957-8713</p>
+      <p>⏰ Lun-Jue 7am-8pm | Vie-Dom 7am-9pm</p>
+    </div>
+    <div class="contact-map">
+      <iframe src="https://www.google.com/maps?q=Hacienda+Cuyagualo+Colón+El+Salvador&output=embed"></iframe>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Restaurante El Rodeo - Todos los derechos reservados</p>
+  © 2026 The Alazan Griller · Colón, El Salvador
 </footer>
+
+<a class="whatsapp" href="https://wa.me/50376290176" target="_blank">WhatsApp</a>
+
+<script>
+const menu=document.getElementById("nav-menu");
+const overlay=document.getElementById("menu-overlay");
+
+function toggleMenu(){
+  menu.classList.toggle("show");
+  overlay.style.display=menu.classList.contains("show")?"block":"none";
+}
+overlay.onclick=toggleMenu;
+</script>
 
 </body>
 </html>
-
 
 
 
